@@ -1,0 +1,375 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.API\\GestaoProdutos.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.API\\GestaoProdutos.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.API\\GestaoProdutos.API.csproj",
+        "projectName": "GestaoProdutos.API",
+        "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.API\\GestaoProdutos.API.csproj",
+        "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj"
+              },
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj"
+              },
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
+              },
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.30, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.1.13, )"
+            },
+            "Nhibernate": {
+              "target": "Package",
+              "version": "[5.3.13, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj",
+        "projectName": "GestaoProdutos.Aplicacao",
+        "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj",
+        "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj"
+              },
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
+              },
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj",
+        "projectName": "GestaoProdutos.DataTransfer",
+        "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj",
+        "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
+        "projectName": "GestaoProdutos.Dominio",
+        "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
+        "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
+        "projectName": "GestaoProdutos.Infra",
+        "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
+        "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "fluentnhibernate": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

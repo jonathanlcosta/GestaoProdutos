@@ -1,0 +1,15 @@
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\bin\Debug\net7.0\GestaoProdutos.Infra.deps.json
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\bin\Debug\net7.0\GestaoProdutos.Infra.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\bin\Debug\net7.0\GestaoProdutos.Infra.pdb
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\bin\Debug\net7.0\GestaoProdutos.Dominio.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\bin\Debug\net7.0\GestaoProdutos.Dominio.pdb
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.csproj.AssemblyReference.cache
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.AssemblyInfoInputs.cache
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.AssemblyInfo.cs
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.csproj.CoreCompileInputs.cache
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.csproj.CopyComplete
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\refint\GestaoProdutos.Infra.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\GestaoProdutos.Infra.pdb
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Infra\obj\Debug\net7.0\ref\GestaoProdutos.Infra.dll
