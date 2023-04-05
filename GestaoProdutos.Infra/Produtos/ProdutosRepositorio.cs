@@ -21,7 +21,6 @@ namespace GestaoProdutos.Infra.Produtos
         {
             produto.SetSituacao(SituacaoProdutoEnum.Inativo);
             session.Update(produto);
-            session.Flush();
         }
 
          public IQueryable<Produto> QueryProduto()
