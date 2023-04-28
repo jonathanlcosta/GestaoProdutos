@@ -35,16 +35,14 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
         }
         public ProdutoResponse Editar(int codigo, ProdutoEditarRequest produtoEditarRequest)
         {
-          var produto = mapper.Map<Produto>(produtoEditarRequest);
-            produto = produtosServico.Editar(codigo, 
+            var transacao = session.BeginTransaction();
+            try
+            {
+                    var produto = produtosServico.Editar(codigo, 
                                     produtoEditarRequest.Descricao, 
                                     produtoEditarRequest.DataFabricacao, 
                                     produtoEditarRequest.DataValidade, 
                                     produtoEditarRequest.IdFornecedor);
-            var transacao = session.BeginTransaction();
-            try
-            {
-                produto = produtosRepositorio.Editar(produto);
                 if(transacao.IsActive)
                     transacao.Commit();
                 return mapper.Map<ProdutoResponse>(produto);;
