@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GestaoProdutos.Aplicacao.Produtos.Servicos.Interfaces;
+using GestaoProdutos.Aplicacao.Transacoes.Interfaces;
 using GestaoProdutos.DataTransfer.Produtos.Request;
 using GestaoProdutos.DataTransfer.Produtos.Response;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
@@ -20,55 +21,52 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
     {
         private readonly IProdutosServico produtosServico;
         private readonly IMapper mapper;
-        private readonly ISession session;
         private readonly IProdutosRepositorio produtosRepositorio;
         private readonly IFornecedoresServico fornecedoresServico;
+        private readonly IUnitOfWork unitOfWork;
 
-        public ProdutosAppServico(IProdutosServico produtosServico, IMapper mapper, ISession session, IProdutosRepositorio produtosRepositorio,
-        IFornecedoresServico fornecedoresServico)
+        public ProdutosAppServico(IProdutosServico produtosServico, IMapper mapper, IProdutosRepositorio produtosRepositorio,
+        IFornecedoresServico fornecedoresServico, IUnitOfWork unitOfWork)
         {
             this.produtosServico = produtosServico;
             this.mapper = mapper;
-            this.session = session;
             this.produtosRepositorio = produtosRepositorio;
             this.fornecedoresServico = fornecedoresServico;
+            this.unitOfWork = unitOfWork;
         }
         public ProdutoResponse Editar(int codigo, ProdutoEditarRequest produtoEditarRequest)
         {
-            var transacao = session.BeginTransaction();
             try
             {
+                    unitOfWork.BeginTransaction();
                     var produto = produtosServico.Editar(codigo, 
                                     produtoEditarRequest.Descricao, 
                                     produtoEditarRequest.DataFabricacao, 
                                     produtoEditarRequest.DataValidade, 
                                     produtoEditarRequest.IdFornecedor);
-                if(transacao.IsActive)
-                    transacao.Commit();
+               
+                    unitOfWork.Commit();
                 return mapper.Map<ProdutoResponse>(produto);;
             }
             catch
             {
-                if(transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw;
             }
         }
 
         public void Excluir(int codigo)
         {
-            var transacao = session.BeginTransaction();
             try
             {
+                unitOfWork.BeginTransaction();
                 var produto = produtosServico.Validar(codigo);
                 produtosRepositorio.Deletar(produto);
-                if(transacao.IsActive)
-                    transacao.Commit();
+                unitOfWork.Commit();
             }
             catch
             {
-                if(transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw;
             }
         }
@@ -81,18 +79,17 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
                                     produtoInserirRequest.DataFabricacao, 
                                     produtoInserirRequest.DataValidade, 
                                     produtoInserirRequest.IdFornecedor);
-            var transacao = session.BeginTransaction();
+           
             try
             {
-                produto = produtosRepositorio.Inserir(produto);
-                if(transacao.IsActive)
-                    transacao.Commit();
+                unitOfWork.BeginTransaction();
+                produto = produtosServico.Inserir(produto);
+                unitOfWork.Commit();
                 return mapper.Map<ProdutoResponse>(produto);
             }
             catch
             {
-                if(transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw;
             }
         }

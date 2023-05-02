@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GestaoProdutos.Aplicacao.Fornecedores.Servicos.Interfaces;
+using GestaoProdutos.Aplicacao.Transacoes.Interfaces;
 using GestaoProdutos.DataTransfer.Fornecedores.Request;
 using GestaoProdutos.DataTransfer.Fornecedores.Response;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
@@ -18,54 +19,48 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
     {
         private readonly IFornecedoresServico fornecedoresServico;
         private readonly IMapper mapper;
-        private readonly ISession session;
         private readonly IFornecedoresRepositorio fornecedoresRepositorio;
+        private readonly IUnitOfWork unitOfWork;
 
         public FornecedoresAppServico(IFornecedoresServico fornecedoresServico,IMapper mapper, 
-        ISession session,  IFornecedoresRepositorio fornecedoresRepositorio)
+        IFornecedoresRepositorio fornecedoresRepositorio, IUnitOfWork unitOfWork)
         {
             this.fornecedoresServico = fornecedoresServico;
             this.fornecedoresRepositorio = fornecedoresRepositorio;
             this.mapper = mapper;
-            this.session = session;
+            this.unitOfWork = unitOfWork;
         }
 
         public FornecedorResponse Editar(int id, FornecedorEditarRequest fornecedorEditarRequest)
         {
-            var fornecedor = mapper.Map<Fornecedor>(fornecedorEditarRequest);
-            fornecedor = fornecedoresServico.Editar(id, 
-                                    fornecedorEditarRequest.Descricao, 
-                                    fornecedorEditarRequest.Cnpj);
-            var transacao = session.BeginTransaction();
             try
             {
-                fornecedor = fornecedoresRepositorio.Editar(fornecedor);
-                if(transacao.IsActive)
-                    transacao.Commit();
+                unitOfWork.BeginTransaction();
+                var fornecedor = fornecedoresServico.Editar(id, 
+                                    fornecedorEditarRequest.Descricao, 
+                                 fornecedorEditarRequest.Cnpj);
+                unitOfWork.Commit();
                 return mapper.Map<FornecedorResponse>(fornecedor);;
             }
             catch
             {
-                if(transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw;
             }
         }
 
         public void Excluir(int id)
         {
-            var transacao = session.BeginTransaction();
             try
             {
+                unitOfWork.BeginTransaction();
                 var fornecedor = fornecedoresServico.Validar(id);
                 fornecedoresRepositorio.Excluir(fornecedor);
-                if(transacao.IsActive)
-                    transacao.Commit();
+               unitOfWork.Commit();
             }
             catch
             {
-                if(transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw;
             }
         }
@@ -73,18 +68,16 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
         public FornecedorResponse Inserir(FornecedorInserirRequest fornecedorInserirRequest)
         {
             var fornecedor = fornecedoresServico.Instanciar(fornecedorInserirRequest.Descricao, fornecedorInserirRequest.Cnpj);
-            var transacao = session.BeginTransaction();
             try
             {
-                fornecedor = fornecedoresRepositorio.Inserir(fornecedor);
-                if(transacao.IsActive)
-                    transacao.Commit();
+                unitOfWork.BeginTransaction();
+                fornecedor = fornecedoresServico.Inserir(fornecedor);
+                unitOfWork.Commit();
                 return mapper.Map<FornecedorResponse>(fornecedor);
             }
             catch
             {
-                if(transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw;
             }
         }
