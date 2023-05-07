@@ -1646,20 +1646,6 @@
         "runtime": {
           "bin/placeholder/GestaoProdutos.Dominio.dll": {}
         }
-      },
-      "GestaoProdutos.Infra/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "GestaoProdutos.Dominio": "1.0.0",
-          "fluentnhibernate": "3.1.0"
-        },
-        "compile": {
-          "bin/placeholder/GestaoProdutos.Infra.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GestaoProdutos.Infra.dll": {}
-        }
       }
     }
   },
@@ -5580,11 +5566,6 @@
       "type": "project",
       "path": "../GestaoProdutos.Dominio/GestaoProdutos.Dominio.csproj",
       "msbuildProject": "../GestaoProdutos.Dominio/GestaoProdutos.Dominio.csproj"
-    },
-    "GestaoProdutos.Infra/1.0.0": {
-      "type": "project",
-      "path": "../GestaoProdutos.Infra/GestaoProdutos.Infra.csproj",
-      "msbuildProject": "../GestaoProdutos.Infra/GestaoProdutos.Infra.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5594,7 +5575,6 @@
       "FluentNHibernate >= 3.1.0",
       "GestaoProdutos.DataTransfer >= 1.0.0",
       "GestaoProdutos.Dominio >= 1.0.0",
-      "GestaoProdutos.Infra >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.10"
     ]
   },
@@ -5630,9 +5610,6 @@
             },
             "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
               "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
-            },
-            "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj": {
-              "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj"
             }
           }
         }

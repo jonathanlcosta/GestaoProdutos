@@ -16,7 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="..\GestaoProdutos.DataTransfer\GestaoProdutos.DataTransfer.csproj" />
     <ProjectReference Include="..\GestaoProdutos.Dominio\GestaoProdutos.Dominio.csproj" />
-    <ProjectReference Include="..\GestaoProdutos.Infra\GestaoProdutos.Infra.csproj" />
   </ItemGroup>
 
 </Project>
