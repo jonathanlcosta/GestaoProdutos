@@ -14,9 +14,6 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Profiles
         public FornecedoresProfile()
         {
         CreateMap<Fornecedor, FornecedorResponse>();
-        CreateMap<Fornecedor, FornecedorListarRequest>();
-        CreateMap<FornecedorInserirRequest, Fornecedor>();
-        CreateMap<FornecedorEditarRequest, Fornecedor>();
         }
     }
 }

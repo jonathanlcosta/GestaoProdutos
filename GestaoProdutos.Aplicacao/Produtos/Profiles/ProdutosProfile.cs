@@ -14,9 +14,6 @@ namespace GestaoProdutos.Aplicacao.Produtos.Profiles
         public ProdutosProfile()
         {
         CreateMap<Produto, ProdutoResponse>();
-        CreateMap<Produto, ProdutoListarRequest>();
-        CreateMap<ProdutoInserirRequest, Produto>();
-        CreateMap<ProdutoEditarRequest, Produto>();
         }
     }
 }
