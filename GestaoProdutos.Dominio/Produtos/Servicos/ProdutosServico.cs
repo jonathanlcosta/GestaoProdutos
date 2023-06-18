@@ -6,6 +6,7 @@ using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Produtos.Entidades;
 using GestaoProdutos.Dominio.Produtos.Repositorios;
+using GestaoProdutos.Dominio.Produtos.Servicos.Comandos;
 using GestaoProdutos.Dominio.Produtos.Servicos.Interfaces;
 
 namespace GestaoProdutos.Dominio.Produtos.Servicos
@@ -19,41 +20,40 @@ namespace GestaoProdutos.Dominio.Produtos.Servicos
             this.produtosRepositorio = produtosRepositorio;
             this.fornecedoresServico = fornecedoresServico;
         }
-        public Produto Editar(int codigo, string descricao, DateTime dataFabricacao, DateTime dataValidade, int idFornecedor)
+        public Produto Editar(int codigo, ProdutoComando comando)
         {
-            var fornecedor = fornecedoresServico.Validar(idFornecedor);
-           var produto = Validar(codigo);
-            if(!string.IsNullOrWhiteSpace(descricao) && produto.Descricao != descricao) produto.SetDescProduto(descricao);
-            produto.SetDataFabricacao(dataFabricacao);
-            produto.SetDataValidade(dataValidade);
-            if(fornecedor is not null) produto.SetFornecedor(fornecedor);
-            produto = produtosRepositorio.Editar(produto);
+            Fornecedor fornecedor = fornecedoresServico.Validar(comando.IdFornecedor);
+            Produto produto = Validar(codigo);
+            produto.SetDescProduto(comando.Descricao);
+            produto.SetDataFabricacao(comando.DataFabricacao);
+            produto.SetDataValidade(comando.DataValidade);
+            produto.SetFornecedor(fornecedor);
+            produtosRepositorio.Editar(produto);
             return produto;
         }
 
-        public Produto Inserir(Produto produto)
+        public Produto Inserir(ProdutoComando comando)
         {
-             var produtoResponse = produtosRepositorio.Inserir(produto);
-            return produtoResponse;
+            Produto produto = Instanciar(comando);
+            produtosRepositorio.Inserir(produto);
+            return produto;
         }
 
-        public Produto Instanciar(string descricao, DateTime dataFabricacao, DateTime dataValidade, int idFornecedor)
+        public Produto Instanciar(ProdutoComando comando)
         {
-           Fornecedor fornecedor = fornecedoresServico.Validar(idFornecedor);
-
-
-            var produtoResponse = new Produto(descricao, dataFabricacao, dataValidade, fornecedor);
-            return produtoResponse;
+            Fornecedor fornecedor = fornecedoresServico.Validar(comando.IdFornecedor);
+            Produto produto = new(comando.Descricao, comando.DataFabricacao, comando.DataValidade, fornecedor);
+            return produto;
         }
 
         public Produto Validar(int codigo)
         {
-            var produtoResponse = this.produtosRepositorio.RecuperarProduto(codigo);
-            if(produtoResponse is null)
+            Produto produto = this.produtosRepositorio.RecuperarProduto(codigo);
+            if (produto is null)
             {
-                 throw new Exception("Produto não encontrado");
+                throw new Exception("Produto não encontrado");
             }
-            return produtoResponse;
+            return produto;
         }
     }
 }

@@ -5,13 +5,9 @@ using System.Threading.Tasks;
 
 namespace GestaoProdutos.Dominio.Util
 {
-    public class PaginacaoConsulta<T>
+   public class PaginacaoConsulta<T> where T : class
     {
-        public int Quantidade { get; set; }
-        public IList<T> Registros{get;set;}
-        public PaginacaoConsulta(int quantidade, IList<T> registros){
-            this.Quantidade = quantidade;
-            this.Registros = registros;
-        }
+        public long Total { get; set; }
+        public IEnumerable<T> Registros { get; set; }
     }
 }

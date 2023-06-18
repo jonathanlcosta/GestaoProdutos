@@ -33,8 +33,8 @@ namespace GestaoProdutos.API.Produtos.Controllers
         }
 
        [HttpGet]
-        public ActionResult<PaginacaoConsulta<ProdutoResponse>> Listar(int pagina, int quantidade, [FromQuery] ProdutoListarRequest produtoListarRequest)
-        {    var response = produtosAppServico.Listar(pagina, quantidade, produtoListarRequest);
+        public ActionResult<PaginacaoConsulta<ProdutoResponse>> Listar([FromQuery] ProdutoListarRequest request)
+        {    var response = produtosAppServico.Listar(request);
             return Ok(response);
         }
 

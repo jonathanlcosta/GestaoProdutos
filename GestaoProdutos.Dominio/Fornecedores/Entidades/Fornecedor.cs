@@ -8,21 +8,21 @@ namespace GestaoProdutos.Dominio.Fornecedores.Entidades
     public class Fornecedor
     {
         public virtual int Id { get; protected set;}
-        public virtual string? Descricao { get; protected set;}
-        public virtual string? Cnpj { get; protected set;}
+        public virtual string Descricao { get; protected set;}
+        public virtual string Cnpj { get; protected set;}
 
         protected Fornecedor()
         {
 
         }
 
-        public Fornecedor(string? descricao, string cnpj)
+        public Fornecedor(string descricao, string cnpj)
         {
             SetDescricaoFornecedor(descricao);
             SetCnpj(cnpj);
         }
 
-        public virtual void SetDescricaoFornecedor(string? descricao)
+        public virtual void SetDescricaoFornecedor(string descricao)
         {
             if(String.IsNullOrWhiteSpace(descricao))
             {

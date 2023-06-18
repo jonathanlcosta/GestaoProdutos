@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using GestaoProdutos.Dominio.Genericos;
 using GestaoProdutos.Dominio.Util;
+using GestaoProdutos.Dominio.Util.Filtros.Enumeradores;
 using NHibernate;
+using System.Linq.Dynamic.Core;
 
 namespace GestaoProdutos.Infra.Genericos
 {
@@ -32,18 +34,46 @@ namespace GestaoProdutos.Infra.Genericos
             return entidade;
         }
 
-        public PaginacaoConsulta<T> Listar(IQueryable<T> query, int? pagina, int quantidade)
+        public void Inserir(IEnumerable<T> entidades)
         {
-            int quantidadeRegistros = query.ToList().Count();
-            IList<T> registros = query.Skip((pagina.Value-1)*quantidade).Take(quantidade).ToList();
-            PaginacaoConsulta<T> consulta = new PaginacaoConsulta<T>(quantidadeRegistros, registros);
-            return consulta;
+            foreach (T entidade in entidades)
+            {
+                session.Save(entidade);
+            }
+        }
+
+         public PaginacaoConsulta<T> Listar(IQueryable<T> query, int qt, int pg, string cpOrd, TipoOrdenacaoEnum tpOrd)
+        {
+            try
+            {
+                query = query.OrderBy(cpOrd + " " + tpOrd.ToString());
+                return Paginar(query, qt, pg);
+            }
+            catch
+            {
+                throw new ArgumentException("Campo da ordenação não informado");
+            }
+        }
+
+        private static PaginacaoConsulta<T> Paginar(IQueryable<T> query, int qt, int pg)
+        {
+            return new PaginacaoConsulta<T>
+            {
+                Registros = query.Skip((pg - 1) * qt).Take(qt).ToList(),
+                Total = query.LongCount(),
+            };
         }
 
         public IQueryable<T> Query()
         {
             return session.Query<T>();
         }
+
+         public IList<T> QueryList()
+        {
+            return session.Query<T>().ToList();
+        }
+
 
         public T Recuperar(int id)
         {

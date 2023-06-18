@@ -11,6 +11,8 @@ using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Produtos.Entidades;
 using GestaoProdutos.Dominio.Produtos.Enumeradores;
 using GestaoProdutos.Dominio.Produtos.Repositorios;
+using GestaoProdutos.Dominio.Produtos.Repositorios.Filtros;
+using GestaoProdutos.Dominio.Produtos.Servicos.Comandos;
 using GestaoProdutos.Dominio.Produtos.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Util;
 using NHibernate;
@@ -34,17 +36,13 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             this.fornecedoresServico = fornecedoresServico;
             this.unitOfWork = unitOfWork;
         }
-        public ProdutoResponse Editar(int codigo, ProdutoEditarRequest produtoEditarRequest)
+        public ProdutoResponse Editar(int codigo, ProdutoEditarRequest request)
         {
+             ProdutoComando comando = mapper.Map<ProdutoComando>(request);
             try
             {
                     unitOfWork.BeginTransaction();
-                    var produto = produtosServico.Editar(codigo, 
-                                    produtoEditarRequest.Descricao, 
-                                    produtoEditarRequest.DataFabricacao, 
-                                    produtoEditarRequest.DataValidade, 
-                                    produtoEditarRequest.IdFornecedor);
-               
+                    Produto produto = produtosServico.Editar(codigo, comando);
                     unitOfWork.Commit();
                 return mapper.Map<ProdutoResponse>(produto);;
             }
@@ -71,19 +69,13 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             }
         }
 
-        public ProdutoResponse Inserir(ProdutoInserirRequest produtoInserirRequest)
+        public ProdutoResponse Inserir(ProdutoInserirRequest request)
         {
-
-            var produto = produtosServico.Instanciar(
-                produtoInserirRequest.Descricao, 
-                                    produtoInserirRequest.DataFabricacao, 
-                                    produtoInserirRequest.DataValidade, 
-                                    produtoInserirRequest.IdFornecedor);
-           
+             ProdutoComando comando = mapper.Map<ProdutoComando>(request);
             try
             {
                 unitOfWork.BeginTransaction();
-                produto = produtosServico.Inserir(produto);
+                Produto produto = produtosServico.Inserir(comando);
                 unitOfWork.Commit();
                 return mapper.Map<ProdutoResponse>(produto);
             }
@@ -94,28 +86,12 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             }
         }
 
-        public PaginacaoConsulta<ProdutoResponse> Listar(int? pagina, int quantidade, ProdutoListarRequest produtoListarRequest)
+        public PaginacaoConsulta<ProdutoResponse> Listar(ProdutoListarRequest request)
         {
-            if (pagina.Value <= 0) throw new Exception("Pagina não especificada");
+            ProdutoListarFiltro filtro = mapper.Map<ProdutoListarFiltro>(request);
+            IQueryable<Produto> query = produtosRepositorio.Filtrar(filtro);
 
-            IQueryable<Produto> query = produtosRepositorio.QueryProduto().Where(p => p.Situacao != SituacaoProdutoEnum.Inativo);
-            if (produtoListarRequest is null)
-                throw new Exception();
-
-            if (!string.IsNullOrEmpty(produtoListarRequest.Descricao))
-                query = query.Where(p => p.Descricao.Contains(produtoListarRequest.Descricao));
-
-            if ((produtoListarRequest.DataValidade != DateTime.MinValue))
-                query = query.Where(p => p.DataValidade.Date == produtoListarRequest.DataValidade.Date);
-            if ((produtoListarRequest.DataFabricacao != DateTime.MinValue))
-                query = query.Where(p => p.DataFabricacao.Date == produtoListarRequest.DataFabricacao.Date);
-
-          if (produtoListarRequest.IdFornecedor.HasValue && produtoListarRequest.IdFornecedor.Value != 0)
-            {
-                query = query.Where(x => x.Fornecedor!.Id == produtoListarRequest.IdFornecedor.Value);
-            }
-
-            PaginacaoConsulta<Produto> produtos = produtosRepositorio.Listar(query, pagina, quantidade);
+            PaginacaoConsulta<Produto> produtos = produtosRepositorio.Listar(query, request.Qt, request.Pg, request.CpOrd, request.TpOrd);
             PaginacaoConsulta<ProdutoResponse> response;
             response = mapper.Map<PaginacaoConsulta<ProdutoResponse>>(produtos);
             return response;
@@ -123,9 +99,8 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
 
         public ProdutoResponse Recuperar(int codigo)
         {
-           var produto = produtosServico.Validar(codigo);
-            var response = mapper.Map<ProdutoResponse>(produto);
-            return response;
+            Produto produto = produtosServico.Validar(codigo);
+            return mapper.Map<ProdutoResponse>(produto);
         }
     }
 }

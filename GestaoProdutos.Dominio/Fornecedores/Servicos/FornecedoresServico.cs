@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Repositorios;
+using GestaoProdutos.Dominio.Fornecedores.Servicos.Comando;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 
 namespace GestaoProdutos.Dominio.Fornecedores.Servicos
@@ -15,36 +16,36 @@ namespace GestaoProdutos.Dominio.Fornecedores.Servicos
         {
             this.fornecedoresRepositorio = fornecedoresRepositorio;
         }
-        public Fornecedor Editar(int id, string? descricao, string cnpj)
+        public Fornecedor Editar(int id, FornecedorComando comando)
         {
-             var fornecedor = Validar(id);
-            if(!string.IsNullOrWhiteSpace(descricao) && fornecedor.Descricao != descricao) fornecedor.SetDescricaoFornecedor(descricao);
-            if(!string.IsNullOrWhiteSpace(cnpj) && fornecedor.Cnpj != cnpj) fornecedor.SetCnpj(cnpj);
-
-            fornecedor = fornecedoresRepositorio.Editar(fornecedor);
+            Fornecedor fornecedor = Validar(id);
+            fornecedor.SetDescricaoFornecedor(comando.Descricao);
+            fornecedor.SetCnpj(comando.Cnpj);
+            fornecedoresRepositorio.Editar(fornecedor);
             return fornecedor;
         }
 
-        public Fornecedor Inserir(Fornecedor fornecedor)
+        public Fornecedor Inserir(FornecedorComando comando)
         {
-            var fornecedorResponse = fornecedoresRepositorio.Inserir(fornecedor);
-           return fornecedorResponse;
+            Fornecedor fornecedor = Instanciar(comando);
+            fornecedoresRepositorio.Inserir(fornecedor);
+            return fornecedor;
         }
 
-        public Fornecedor Instanciar(string descricao, string cnpj)
+        public Fornecedor Instanciar(FornecedorComando comando)
         {
-            var fornecedorResponse = new Fornecedor(descricao, cnpj);
-            return fornecedorResponse;
+            Fornecedor fornecedor = new(comando.Descricao, comando.Cnpj);
+            return fornecedor;
         }
 
         public Fornecedor Validar(int id)
         {
-           var fornecedorResponse = this.fornecedoresRepositorio.Recuperar(id);
-            if(fornecedorResponse is null)
+            Fornecedor fornecedor = fornecedoresRepositorio.Recuperar(id);
+            if (fornecedor is null)
             {
-                 throw new Exception("Fornecedor não encontrado");
+                throw new Exception("Fornecedor não encontrado");
             }
-            return fornecedorResponse;
+            return fornecedor;
         }
     }
 }

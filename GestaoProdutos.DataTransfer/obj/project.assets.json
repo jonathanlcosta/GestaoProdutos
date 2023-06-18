@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "GestaoProdutos.Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/GestaoProdutos.Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GestaoProdutos.Dominio.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GestaoProdutos.Dominio/1.0.0": {
+      "type": "project",
+      "path": "../GestaoProdutos.Dominio/GestaoProdutos.Dominio.csproj",
+      "msbuildProject": "../GestaoProdutos.Dominio/GestaoProdutos.Dominio.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "GestaoProdutos.Dominio >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\nickc\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+              "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

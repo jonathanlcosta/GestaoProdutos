@@ -10,10 +10,10 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos.Interfaces
 {
     public interface IProdutosAppServico
     {
-        PaginacaoConsulta<ProdutoResponse> Listar(int? pagina, int quantidade, ProdutoListarRequest produtoListarRequest);
+        PaginacaoConsulta<ProdutoResponse> Listar(ProdutoListarRequest request);
         ProdutoResponse Recuperar(int codigo);
-        ProdutoResponse Inserir(ProdutoInserirRequest produtoInserirRequest);
-        ProdutoResponse Editar(int codigo, ProdutoEditarRequest produtoEditarRequest);
+        ProdutoResponse Inserir(ProdutoInserirRequest request);
+        ProdutoResponse Editar(int codigo, ProdutoEditarRequest request);
         void Excluir(int codigo);
     }
 }

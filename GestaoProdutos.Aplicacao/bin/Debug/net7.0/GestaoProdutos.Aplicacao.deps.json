@@ -912,6 +912,9 @@
         }
       },
       "GestaoProdutos.DataTransfer/1.0.0": {
+        "dependencies": {
+          "GestaoProdutos.Dominio": "1.0.0"
+        },
         "runtime": {
           "GestaoProdutos.DataTransfer.dll": {}
         }

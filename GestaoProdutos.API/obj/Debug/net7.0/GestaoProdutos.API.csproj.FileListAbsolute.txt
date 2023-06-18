@@ -77,3 +77,4 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\refi
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.pdb
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.genruntimeconfig.cache
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\ref\GestaoProdutos.API.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll

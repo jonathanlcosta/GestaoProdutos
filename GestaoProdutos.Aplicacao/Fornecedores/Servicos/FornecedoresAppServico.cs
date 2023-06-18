@@ -9,6 +9,8 @@ using GestaoProdutos.DataTransfer.Fornecedores.Request;
 using GestaoProdutos.DataTransfer.Fornecedores.Response;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Repositorios;
+using GestaoProdutos.Dominio.Fornecedores.Repositorios.Filtros;
+using GestaoProdutos.Dominio.Fornecedores.Servicos.Comando;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Util;
 using NHibernate;
@@ -31,14 +33,13 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             this.unitOfWork = unitOfWork;
         }
 
-        public FornecedorResponse Editar(int id, FornecedorEditarRequest fornecedorEditarRequest)
+        public FornecedorResponse Editar(int id, FornecedorEditarRequest request)
         {
+            FornecedorComando comando = mapper.Map<FornecedorComando>(request);
             try
             {
                 unitOfWork.BeginTransaction();
-                var fornecedor = fornecedoresServico.Editar(id, 
-                                    fornecedorEditarRequest.Descricao, 
-                                 fornecedorEditarRequest.Cnpj);
+                Fornecedor fornecedor = fornecedoresServico.Editar(id, comando);          
                 unitOfWork.Commit();
                 return mapper.Map<FornecedorResponse>(fornecedor);;
             }
@@ -54,9 +55,9 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             try
             {
                 unitOfWork.BeginTransaction();
-                var fornecedor = fornecedoresServico.Validar(id);
+                Fornecedor fornecedor = fornecedoresServico.Validar(id);
                 fornecedoresRepositorio.Excluir(fornecedor);
-               unitOfWork.Commit();
+                unitOfWork.Commit();
             }
             catch
             {
@@ -65,13 +66,13 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             }
         }
 
-        public FornecedorResponse Inserir(FornecedorInserirRequest fornecedorInserirRequest)
+        public FornecedorResponse Inserir(FornecedorInserirRequest request)
         {
-            var fornecedor = fornecedoresServico.Instanciar(fornecedorInserirRequest.Descricao, fornecedorInserirRequest.Cnpj);
+          FornecedorComando comando = mapper.Map<FornecedorComando>(request);
             try
             {
                 unitOfWork.BeginTransaction();
-                fornecedor = fornecedoresServico.Inserir(fornecedor);
+                Fornecedor fornecedor = fornecedoresServico.Inserir(comando);
                 unitOfWork.Commit();
                 return mapper.Map<FornecedorResponse>(fornecedor);
             }
@@ -82,19 +83,12 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             }
         }
 
-        public PaginacaoConsulta<FornecedorResponse> Listar(int? pagina, int quantidade, FornecedorListarRequest fornecedorListarRequest)
+        public PaginacaoConsulta<FornecedorResponse> Listar(FornecedorListarRequest request)
         {
-             if (pagina.Value <= 0) throw new Exception("Pagina não especificada");
+            FornecedorListarFiltro filtro = mapper.Map<FornecedorListarFiltro>(request);
+            IQueryable<Fornecedor> query = fornecedoresRepositorio.Filtrar(filtro);
 
-            IQueryable<Fornecedor> query = fornecedoresRepositorio.Query();
-            if (fornecedorListarRequest is null)
-                throw new Exception();
-
-            if (!string.IsNullOrEmpty(fornecedorListarRequest.Descricao))
-                query = query.Where(p => p.Descricao.Contains(fornecedorListarRequest.Descricao));
-             if (!string.IsNullOrEmpty(fornecedorListarRequest.Cnpj) && fornecedorListarRequest.Cnpj.Length != 14 )
-                query = query.Where(p => p.Cnpj.Contains(fornecedorListarRequest.Cnpj));
-            PaginacaoConsulta<Fornecedor> fornecedores = fornecedoresRepositorio.Listar(query, pagina, quantidade);
+            PaginacaoConsulta<Fornecedor> fornecedores = fornecedoresRepositorio.Listar(query, request.Qt, request.Pg, request.CpOrd, request.TpOrd);
             PaginacaoConsulta<FornecedorResponse> response;
             response = mapper.Map<PaginacaoConsulta<FornecedorResponse>>(fornecedores);
             return response;
@@ -102,9 +96,8 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
 
         public FornecedorResponse Recuperar(int id)
         {
-            var fornecedor = fornecedoresServico.Validar(id);
-            var response = mapper.Map<FornecedorResponse>(fornecedor);
-            return response;
+            Fornecedor fornecedor = fornecedoresServico.Validar(id);
+            return mapper.Map<FornecedorResponse>(fornecedor);
         }
     }
 }

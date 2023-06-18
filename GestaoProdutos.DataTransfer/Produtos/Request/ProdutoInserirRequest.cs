@@ -5,11 +5,5 @@ using System.Threading.Tasks;
 
 namespace GestaoProdutos.DataTransfer.Produtos.Request
 {
-    public class ProdutoInserirRequest
-    {
-        public string? Descricao {get; set;}
-        public DateTime DataFabricacao {get;set;}
-        public DateTime DataValidade {get;set;}
-        public int IdFornecedor {get; set;}
-    }
+    public record ProdutoInserirRequest(string Descricao, DateTime DataFabricacao, DateTime DataValidade, int IdFornecedor);
 }

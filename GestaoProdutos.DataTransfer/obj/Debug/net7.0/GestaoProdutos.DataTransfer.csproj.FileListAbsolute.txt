@@ -10,3 +10,6 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\obj\Debug\ne
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\obj\Debug\net7.0\refint\GestaoProdutos.DataTransfer.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\obj\Debug\net7.0\GestaoProdutos.DataTransfer.pdb
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\obj\Debug\net7.0\ref\GestaoProdutos.DataTransfer.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\bin\Debug\net7.0\GestaoProdutos.Dominio.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\bin\Debug\net7.0\GestaoProdutos.Dominio.pdb
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.DataTransfer\obj\Debug\net7.0\GestaoProdutos.DataTransfer.csproj.CopyComplete

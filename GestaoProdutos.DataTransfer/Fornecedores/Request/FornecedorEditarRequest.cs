@@ -5,9 +5,5 @@ using System.Threading.Tasks;
 
 namespace GestaoProdutos.DataTransfer.Fornecedores.Request
 {
-    public class FornecedorEditarRequest
-    {
-        public string? Descricao { get; set;}
-        public string? Cnpj{ get; set;}
-    }
+    public record FornecedorEditarRequest(string Descricao, string Cnpj);
 }

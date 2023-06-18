@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "GestaoProdutos.DataTransfer/1.0.0": {
+        "dependencies": {
+          "GestaoProdutos.Dominio": "1.0.0"
+        },
         "runtime": {
           "GestaoProdutos.DataTransfer.dll": {}
+        }
+      },
+      "GestaoProdutos.Dominio/1.0.0": {
+        "runtime": {
+          "GestaoProdutos.Dominio.dll": {}
         }
       }
     }
   },
   "libraries": {
     "GestaoProdutos.DataTransfer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GestaoProdutos.Dominio/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

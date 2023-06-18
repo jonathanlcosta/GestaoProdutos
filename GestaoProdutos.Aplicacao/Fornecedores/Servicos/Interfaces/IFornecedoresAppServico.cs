@@ -10,10 +10,10 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos.Interfaces
 {
     public interface IFornecedoresAppServico
     {
-        PaginacaoConsulta<FornecedorResponse> Listar(int? pagina, int quantidade, FornecedorListarRequest fornecedorListarRequest);
+        PaginacaoConsulta<FornecedorResponse> Listar(FornecedorListarRequest request);
         FornecedorResponse Recuperar(int id);
-        FornecedorResponse Inserir(FornecedorInserirRequest fornecedorInserirRequest);
-        FornecedorResponse Editar(int id, FornecedorEditarRequest fornecedorEditarRequest);
+        FornecedorResponse Inserir(FornecedorInserirRequest request);
+        FornecedorResponse Editar(int id, FornecedorEditarRequest request);
         void Excluir(int id);
     }
 }

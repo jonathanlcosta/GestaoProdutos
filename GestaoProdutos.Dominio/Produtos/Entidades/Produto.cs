@@ -10,11 +10,11 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
     public class Produto
     {
         public virtual int Codigo {get; protected set;}
-        public virtual string? Descricao {get; protected set;}
+        public virtual string Descricao {get; protected set;}
         public virtual SituacaoProdutoEnum? Situacao {get; protected set;}
         public virtual DateTime DataFabricacao {get; protected set;}
         public virtual DateTime DataValidade {get; protected set;}
-        public virtual Fornecedor? Fornecedor {get; protected set;}
+        public virtual Fornecedor Fornecedor {get; protected set;}
 
         protected Produto()
         {
@@ -31,7 +31,7 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
         }
 
 
-        public virtual void SetDescProduto(string? descricao)
+        public virtual void SetDescProduto(string descricao)
         {
             if (string.IsNullOrWhiteSpace(descricao))
             {
@@ -67,7 +67,7 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
             DataValidade = dataValidade;
         }
 
-        public virtual void SetFornecedor(Fornecedor? fornecedor)
+        public virtual void SetFornecedor(Fornecedor fornecedor)
         {
             if (fornecedor is null)
             {

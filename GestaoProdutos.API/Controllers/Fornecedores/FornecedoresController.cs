@@ -33,8 +33,8 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
         }
 
        [HttpGet]
-        public ActionResult<PaginacaoConsulta<FornecedorResponse>> Listar(int pagina, int quantidade, [FromQuery] FornecedorListarRequest fornecedorListarRequest)
-        {    var response = fornecedoresAppServico.Listar(pagina, quantidade, fornecedorListarRequest);
+        public ActionResult<PaginacaoConsulta<FornecedorResponse>> Listar([FromQuery] FornecedorListarRequest request)
+        {    var response = fornecedoresAppServico.Listar(request);
             return Ok(response);
         }
 

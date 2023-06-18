@@ -5,10 +5,5 @@ using System.Threading.Tasks;
 
 namespace GestaoProdutos.DataTransfer.Fornecedores.Response
 {
-    public class FornecedorResponse
-    {
-        public int Id{ get; set;}
-        public string? Descricao { get; set;}
-        public string? Cnpj{ get; set;}
-    }
+    public record FornecedorResponse(int Id, string Descricao, string Cnpj);
 }
