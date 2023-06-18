@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Produtos.Entidades;
@@ -51,7 +52,7 @@ namespace GestaoProdutos.Dominio.Produtos.Servicos
             Produto produto = this.produtosRepositorio.RecuperarProduto(codigo);
             if (produto is null)
             {
-                throw new Exception("Produto não encontrado");
+                throw new RegraDeNegocioExcecao("Produto não encontrado");
             }
             return produto;
         }

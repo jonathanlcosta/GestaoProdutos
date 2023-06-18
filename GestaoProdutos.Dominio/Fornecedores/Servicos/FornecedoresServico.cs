@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Repositorios;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Comando;
@@ -43,7 +44,7 @@ namespace GestaoProdutos.Dominio.Fornecedores.Servicos
             Fornecedor fornecedor = fornecedoresRepositorio.Recuperar(id);
             if (fornecedor is null)
             {
-                throw new Exception("Fornecedor não encontrado");
+                throw new RegraDeNegocioExcecao("Fornecedor não encontrado");
             }
             return fornecedor;
         }

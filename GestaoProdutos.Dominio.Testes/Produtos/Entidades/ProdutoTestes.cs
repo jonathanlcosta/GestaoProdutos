@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FizzWare.NBuilder;
 using FluentAssertions;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Produtos.Entidades;
 using Xunit;
@@ -26,9 +27,9 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Entidades
             [InlineData(null)]
             [InlineData("")]
             [InlineData("                ")]
-            public void Dado_DescricaoNuloOuEspacoEmBranco_Espero_Excecao(string descricao)
+            public void Dado_DescricaoNuloOuEspacoEmBranco_Espero_AtributoObrigatorioExcecao(string descricao)
             {
-                sut.Invoking(x => x.SetDescProduto(descricao)).Should().Throw<ArgumentException>();
+                sut.Invoking(x => x.SetDescProduto(descricao)).Should().Throw<AtributoObrigatorioExcecao>();
             }
             [Fact]
             public void Dado_DescricaoValido_Espero_PropriedadesPreenchidas()
@@ -43,18 +44,18 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Entidades
     public class SetDataFabricacao : ProdutoTestes
     {
         [Fact]
-        public void Dado_DataFabricacaoComValorMinimo_Espero_Excecao()
+        public void Dado_DataFabricacaoComValorMinimo_Espero_AtributoObrigatorioExcecao()
         {
             DateTime data = DateTime.MinValue;
-            sut.Invoking(x => x.SetDataFabricacao(data)).Should().Throw<ArgumentException>();
+            sut.Invoking(x => x.SetDataFabricacao(data)).Should().Throw<AtributoObrigatorioExcecao>();
         }
 
          [Fact]
-    public void SetDataFabricacao_DeveLancarExcecao_DataFabricacaoInvalida()
+    public void SetDataFabricacao_DeveLancarExcecao_Quando_DataFabricacaoInvalida()
     {
         var data = new DateTime(2022, 12, 31);
         sut.SetDataValidade(data);
-        Assert.Throws<ArgumentException>(() => sut.SetDataFabricacao(new DateTime(2023, 1, 1)));
+        Assert.Throws<RegraDeNegocioExcecao>(() => sut.SetDataFabricacao(new DateTime(2023, 1, 1)));
     }
 
     [Fact]
@@ -70,14 +71,14 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Entidades
      public class SetDataValidade : ProdutoTestes
     {
         [Fact]
-        public void Dado_DataComValorMinimo_Espero_Excecao()
+        public void Dado_DataValidadeComValorMinimo_Espero_AtributoObrigatorioExcecao()
         {
             DateTime data = DateTime.MinValue;
-            sut.Invoking(x => x.SetDataValidade(data)).Should().Throw<ArgumentException>();
+            sut.Invoking(x => x.SetDataValidade(data)).Should().Throw<AtributoObrigatorioExcecao>();
         }
 
         [Fact]
-        public void Dado_DataValida_Espero_PropriedadesPreenchidas()
+        public void Dado_DataDeValidadeValida_Espero_PropriedadesPreenchidas()
         {
             DateTime data = new DateTime(2022, 2, 12);
              sut.SetDataValidade(data);
@@ -89,10 +90,10 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Entidades
     public class SetFornecedor : ProdutoTestes
     {
         [Fact]
-        public void Dado_FornecedorNulo_Espero_Excecao()
+        public void Dado_FornecedorNulo_Espero_AtributoObrigatorioExcecao()
         {
             Fornecedor fornecedor = null;
-            sut.Invoking(x => x.SetFornecedor(fornecedor)).Should().Throw<ArgumentException>();
+            sut.Invoking(x => x.SetFornecedor(fornecedor)).Should().Throw<AtributoObrigatorioExcecao>();
         }
 
         [Fact]

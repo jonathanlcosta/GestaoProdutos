@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GestaoProdutos.Dominio.Execoes;
 
 namespace GestaoProdutos.Dominio.Fornecedores.Entidades
 {
@@ -26,7 +27,7 @@ namespace GestaoProdutos.Dominio.Fornecedores.Entidades
         {
             if(String.IsNullOrWhiteSpace(descricao))
             {
-                throw new ArgumentException("O nome do fornecedor é obrigatorio");
+                throw new AtributoObrigatorioExcecao("Descrição");
             }
             Descricao = descricao;
         }
@@ -34,9 +35,9 @@ namespace GestaoProdutos.Dominio.Fornecedores.Entidades
          public virtual void SetCnpj(string cnpj)
     {
          if (String.IsNullOrWhiteSpace(cnpj))
-                throw new ArgumentException("O CNPJ não pode ser vazio.");
+                throw new AtributoObrigatorioExcecao("CNPJ");
             if (cnpj.Length != 14)
-                throw new ArgumentException("O CNPJ deve conter 14 caracteres.");
+                throw new TamanhoDeAtributoInvalidoExcecao("CNPJ", 14, 14);
                 
             Cnpj = cnpj.Replace(".", "").Replace("/", "").Replace("-", "");
     }

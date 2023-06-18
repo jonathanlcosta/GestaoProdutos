@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FizzWare.NBuilder;
 using FluentAssertions;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using Xunit;
 
@@ -23,9 +24,9 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Entidades
             [InlineData(null)]
             [InlineData("")]
             [InlineData("                ")]
-            public void Dado_DescricaoNuloOuEspacoEmBranco_Espero_Excecao(string descricao)
+            public void Dado_DescricaoNuloOuEspacoEmBranco_Espero_AtributoObrigatorioExcecaoExcecao(string descricao)
             {
-                sut.Invoking(x => x.SetDescricaoFornecedor(descricao)).Should().Throw<ArgumentException>();
+                sut.Invoking(x => x.SetDescricaoFornecedor(descricao)).Should().Throw<AtributoObrigatorioExcecao>();
             }
             [Fact]
             public void Dado_DescricaoValido_Espero_PropriedadesPreenchidas()
@@ -43,21 +44,21 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Entidades
             [InlineData(null)]
             [InlineData("")]
             [InlineData("                ")]
-            public void Dado_CnpjNuloOuEspacoEmBranco_Espero_Excecao(string cnpj)
+            public void Dado_CnpjNuloOuEspacoEmBranco_Espero_AtributoObrigatorioExcecao(string cnpj)
             {
-                sut.Invoking(x => x.SetCnpj(cnpj)).Should().Throw<ArgumentException>();
+                sut.Invoking(x => x.SetCnpj(cnpj)).Should().Throw<AtributoObrigatorioExcecao>();
             }
 
             [Fact]
-            public void Dado_CnpjComMaisDeQuatorzeCaracteres_Espero_Exception()
+            public void Dado_CnpjComMaisDeQuatorzeCaracteres_Espero_TamanhoDeAtributoInvalidoExcecao()
             {
-                sut.Invoking(x => x.SetCnpj(new string('*', 15))).Should().Throw<ArgumentException>();
+                sut.Invoking(x => x.SetCnpj(new string('*', 15))).Should().Throw<TamanhoDeAtributoInvalidoExcecao>();
             }
 
             [Fact]
-            public void Dado_CnpjComMenosDeQuatorzeCaracteres_Espero_Exception()
+            public void Dado_CnpjComMenosDeQuatorzeCaracteres_Espero_TamanhoDeAtributoInvalidoExcecao()
             {
-                sut.Invoking(x => x.SetCnpj(new string('*', 13))).Should().Throw<ArgumentException>();
+                sut.Invoking(x => x.SetCnpj(new string('*', 13))).Should().Throw<TamanhoDeAtributoInvalidoExcecao>();
             }
 
             [Fact]

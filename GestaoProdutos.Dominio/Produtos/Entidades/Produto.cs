@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Produtos.Enumeradores;
 
@@ -11,7 +12,7 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
     {
         public virtual int Codigo {get; protected set;}
         public virtual string Descricao {get; protected set;}
-        public virtual SituacaoProdutoEnum? Situacao {get; protected set;}
+        public virtual SituacaoProdutoEnum Situacao {get; protected set;}
         public virtual DateTime DataFabricacao {get; protected set;}
         public virtual DateTime DataValidade {get; protected set;}
         public virtual Fornecedor Fornecedor {get; protected set;}
@@ -35,7 +36,7 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
         {
             if (string.IsNullOrWhiteSpace(descricao))
             {
-                throw new ArgumentException("A descricao do produto é obrigatorio");
+                throw new AtributoObrigatorioExcecao("Descrição");
             }
             Descricao = descricao;
         }
@@ -49,11 +50,11 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
         {
              if (dataFabricacao == DateTime.MinValue)
             {
-                throw new ArgumentException("A data não foi informada.");
+                throw new AtributoObrigatorioExcecao("Data");
             }
             if (dataFabricacao.CompareTo(this.DataValidade) > 0 || dataFabricacao.CompareTo(this.DataValidade) == 0)
             {
-                throw new ArgumentException("A data de fabricacao nao pode ser anterior ou na mesma data que a data de validade");
+                throw new RegraDeNegocioExcecao("A data de fabricacao nao pode ser anterior ou na mesma data que a data de validade");
             }
             DataFabricacao = dataFabricacao;
         }
@@ -62,7 +63,7 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
         {
              if (dataValidade == DateTime.MinValue)
             {
-                throw new ArgumentException("A data de validade é obrigatória.");
+                throw new AtributoObrigatorioExcecao("Data");
             }
             DataValidade = dataValidade;
         }
@@ -71,7 +72,7 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
         {
             if (fornecedor is null)
             {
-                throw new ArgumentException("Produto precisa ter um fornecedor");
+                throw new AtributoObrigatorioExcecao("Fornecedor");
             }
             Fornecedor = fornecedor;
         }
