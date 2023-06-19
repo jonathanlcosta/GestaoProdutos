@@ -20,7 +20,12 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
         {
             this.fornecedoresAppServico = fornecedoresAppServico;
         }
-
+                                 
+    /// <summary>
+    /// Recupera fornecedor por Id
+    /// </summary>
+      /// <param name="id"></param>
+    /// <returns></returns>
         [HttpGet("{id}")]
         public ActionResult<FornecedorResponse> Recuperar(int id)
         {
@@ -32,12 +37,22 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
             return Ok(response);
         }
 
+        /// <summary>
+    /// Lista fornecedores por paginação
+    /// </summary>
+      /// <param name="request"></param>
+    /// <returns></returns>
        [HttpGet]
         public ActionResult<PaginacaoConsulta<FornecedorResponse>> Listar([FromQuery] FornecedorListarRequest request)
         {    var response = fornecedoresAppServico.Listar(request);
             return Ok(response);
         }
 
+                /// <summary>
+    /// Insere fornecedor
+    /// </summary>
+      /// <param name="fornecedor"></param>
+    /// <returns></returns>
         [HttpPost]
         public ActionResult<FornecedorResponse> Inserir([FromBody] FornecedorInserirRequest fornecedor)
         {
@@ -45,6 +60,12 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
             return Ok(retorno);
         }
 
+        /// <summary>
+    /// Edita fornecedor por Id
+    /// </summary>
+       /// <param name="id"></param>
+      /// <param name="fornecedor"></param>
+    /// <returns></returns>
         [HttpPut("{id}")]
         public ActionResult Editar(int id, [FromBody] FornecedorEditarRequest fornecedor)
         {
@@ -53,6 +74,11 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
             return Ok();
         }
 
+                /// <summary>
+    /// Deleta fornecedor por Id
+    /// </summary>
+       /// <param name="id"></param>
+    /// <returns></returns>
         [HttpDelete]
         [Route("{id}")]
         public ActionResult Excluir(int id)

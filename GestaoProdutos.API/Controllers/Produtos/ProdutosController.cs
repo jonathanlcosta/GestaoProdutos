@@ -21,6 +21,11 @@ namespace GestaoProdutos.API.Produtos.Controllers
             this.produtosAppServico = produtosAppServico;
         }
 
+                         /// <summary>
+    /// Recupera produto por Código
+    /// </summary>
+      /// <param name="codigo"></param>
+    /// <returns></returns>
         [HttpGet("{codigo}")]
         public ActionResult<ProdutoResponse> Recuperar(int codigo)
         {
@@ -32,12 +37,22 @@ namespace GestaoProdutos.API.Produtos.Controllers
             return Ok(response);
         }
 
+                 /// <summary>
+    /// Listar produtos por paginação
+    /// </summary>
+      /// <param name="request"></param>
+    /// <returns></returns>
        [HttpGet]
         public ActionResult<PaginacaoConsulta<ProdutoResponse>> Listar([FromQuery] ProdutoListarRequest request)
         {    var response = produtosAppServico.Listar(request);
             return Ok(response);
         }
 
+                        /// <summary>
+    /// Insere produto
+    /// </summary>
+      /// <param name="produto"></param>
+    /// <returns></returns>
         [HttpPost]
         public ActionResult<ProdutoResponse> Inserir([FromBody] ProdutoInserirRequest produto)
         {
@@ -45,6 +60,12 @@ namespace GestaoProdutos.API.Produtos.Controllers
             return Ok(retorno);
         }
 
+             /// <summary>
+    /// Edita um produto por Código
+    /// </summary>
+    /// <param name="codigo"></param>
+      /// <param name="produto"></param>
+    /// <returns></returns>
         [HttpPut("{codigo}")]
         public ActionResult Editar(int codigo, [FromBody] ProdutoEditarRequest produto)
         {
@@ -53,6 +74,11 @@ namespace GestaoProdutos.API.Produtos.Controllers
             return Ok();
         }
 
+        /// <summary>
+    /// Deleta um produto por Código
+    /// </summary>
+    /// <param name="codigo"></param>
+    /// <returns></returns>
         [HttpDelete]
         [Route("{codigo}")]
         public ActionResult Excluir(int codigo)

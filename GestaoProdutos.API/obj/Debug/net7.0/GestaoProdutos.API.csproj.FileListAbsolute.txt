@@ -40,6 +40,7 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Swas
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Drawing.Common.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Windows.Extensions.dll
@@ -77,4 +78,4 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\refi
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.pdb
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.genruntimeconfig.cache
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\ref\GestaoProdutos.API.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.xml

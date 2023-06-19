@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rywGeHvzOZNwfwIIDil76J0D8NYTd47kJe0veY74y08gyaF6BNPeag8tzeNLg/ERgo04Qt69Evsv7Mk6GZ9bDQ==",
+  "dgSpecHash": "CRgM4nEz2jyJ6o3Cl1aznE6azEzF+5SXwszs9MwyJt/ueMkDruw2Y3h/U9dTFf0yJ5cpJGaKNz/s4knIOWMvrA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio.Testes\\GestaoProdutos.Dominio.Testes.csproj",
+  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio.Testes\\GestaoProdutos.Dominio.Testes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

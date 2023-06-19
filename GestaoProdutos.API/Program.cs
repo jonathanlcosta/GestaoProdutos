@@ -1,3 +1,4 @@
+using System.Reflection;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using GestaoProdutos.Aplicacao.Produtos.Profiles;
@@ -5,6 +6,7 @@ using GestaoProdutos.Aplicacao.Produtos.Servicos;
 using GestaoProdutos.Dominio.Produtos.Servicos;
 using GestaoProdutos.Infra.Produtos;
 using GestaoProdutos.Infra.Produtos.Mapeamentos;
+using Microsoft.OpenApi.Models;
 using NHibernate;
 using ISession = NHibernate.ISession;
 
@@ -15,7 +17,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "GestaoProdutos", Version = "v1" });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+
+    c.IncludeXmlComments(xmlPath);
+});
+
 
 
 builder.Services.AddSingleton<ISessionFactory>(factory => 
@@ -62,7 +74,11 @@ c.AllowAnyOrigin();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("../swagger/v1/swagger.json", "GestaoProdutos");
+                c.DisplayRequestDuration();
+            });
 }
 
 app.UseHttpsRedirection();
