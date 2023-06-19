@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using FizzWare.NBuilder;
 using FluentAssertions;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Repositorios;
 using GestaoProdutos.Dominio.Fornecedores.Servicos;
+using GestaoProdutos.Dominio.Fornecedores.Servicos.Comando;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using NSubstitute;
 using Xunit;
@@ -29,17 +31,17 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
         public class ValidarMetodo : FornecedoresServicoTestes
         {
             [Fact]
-            public void Dado_FornecedorNaoEncontrado_Espero_Excecao()
+            public void Dado_FornecedorNaoEncontrado_Espero_RegraDeNegocioExcecao()
             {
-                fornecedorRepositorio.Recuperar(Arg.Any<int>()).Returns(x => null);
-                sut.Invoking(x => x.Validar(2)).Should().Throw<Exception>();
+                fornecedorRepositorio.Recuperar(2).Returns(x => null);
+                sut.Invoking(x => x.Validar(2)).Should().Throw<RegraDeNegocioExcecao>();
 
             }
 
             [Fact]
             public void Dado_FornecedorEncontrado_Espero_FornecedorValido()
             {
-                fornecedorRepositorio.Recuperar(Arg.Any<int>()).Returns(fornecedorValido);
+                fornecedorRepositorio.Recuperar(2).Returns(fornecedorValido);
                 sut.Validar(2).Should().BeSameAs(fornecedorValido);
             }
         }
@@ -49,12 +51,13 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
             [Fact]
             public void Dado_ParametrosParaCriarFornecedores_Espero_FornecedorInstanciado()
             {
+            FornecedorComando comando = Builder<FornecedorComando>.CreateNew()
+            .With(x => x.Cnpj, "19876545632312").Build();
+            Fornecedor resultado = sut.Instanciar(comando);
 
-            // var fornecedor = sut.Instanciar("Fornecedor", "12345678912345");
-
-            // Assert.NotNull(fornecedor);
-            // Assert.Equal("Fornecedor", fornecedor.Descricao);
-            // Assert.Equal("12345678912345", fornecedor.Cnpj);
+            Assert.NotNull(resultado);
+            Assert.Equal(comando.Descricao, resultado.Descricao);
+            Assert.Equal(comando.Cnpj, resultado.Cnpj);
             }
         }
         public class InserirMetodo : FornecedoresServicoTestes
@@ -62,13 +65,16 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
             [Fact]
             public void Dado_FornecedorValido_Espero_FornecedorInserido()
             {
-                // fornecedorRepositorio.Inserir(Arg.Any<Fornecedor>()).Returns(fornecedorValido);
+                 FornecedorComando comando = Builder<FornecedorComando>.CreateNew()
+                .With(x => x.Cnpj, "19876545632312").Build();
+                Fornecedor resultado = sut.Inserir(comando);
+                
+                fornecedorRepositorio.Inserir(resultado).Returns(fornecedorValido);
 
-                // var fornecedor = sut.Inserir(fornecedorValido);
+                resultado.Should().BeOfType<Fornecedor>();
+                resultado.Descricao.Should().Be(comando.Descricao);
+                resultado.Cnpj.Should().Be(comando.Cnpj);
 
-                // fornecedorRepositorio.Received(1).Inserir(fornecedorValido);
-                // fornecedor.Should().BeOfType<Fornecedor>();
-                // fornecedor.Should().Be(fornecedorValido);
             }
         }
 
@@ -77,13 +83,19 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
             [Fact]
             public void Quando_MetodoForChamado_Espero_FornecedorAtualizado()
             {
-                // string cnpj = "12345678912345";
-                // fornecedorRepositorio.Recuperar(1).Returns(fornecedorValido);
-                // sut.Editar(1, "Fornecedor", cnpj);
-                // fornecedorValido.Id.Should().Be(1);
-                // fornecedorValido.Descricao.Should().Be("Fornecedor");
-                // fornecedorValido.Cnpj.Should().Be(cnpj);
-                // fornecedorRepositorio.Received().Editar(fornecedorValido);
+                FornecedorComando comando = Builder<FornecedorComando>.CreateNew()
+                .With(x => x.Cnpj, "19876545632312").Build();
+                
+                sut.Validar(1).Returns(fornecedorValido);
+                Fornecedor resultado = sut.Editar(1, comando);
+
+                fornecedorRepositorio.Recuperar(1).Returns(fornecedorValido);
+                fornecedorRepositorio.Editar(resultado).Returns(fornecedorValido);
+
+                resultado.Should().BeOfType<Fornecedor>();
+                resultado.Descricao.Should().Be(comando.Descricao);
+                resultado.Cnpj.Should().Be(comando.Cnpj);
+              
             }
         }
     }

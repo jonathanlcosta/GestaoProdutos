@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using FizzWare.NBuilder;
 using FluentAssertions;
+using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Produtos.Entidades;
 using GestaoProdutos.Dominio.Produtos.Repositorios;
 using GestaoProdutos.Dominio.Produtos.Servicos;
+using GestaoProdutos.Dominio.Produtos.Servicos.Comandos;
 using NSubstitute;
 using Xunit;
 
@@ -36,17 +38,17 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
          public class ValidarMetodo : ProdutosServicoTestes
         {
             [Fact]
-            public void Dado_ProdutoNaoEncontrado_Espero_Excecao()
+            public void Dado_ProdutoNaoEncontrado_Espero_RegraDeNegocioExcecao()
             {
-                produtosRepositorio.RecuperarProduto(Arg.Any<int>()).Returns(x => null);
-                sut.Invoking(x => x.Validar(2)).Should().Throw<Exception>();
+                produtosRepositorio.RecuperarProduto(2).Returns(x => null);
+                sut.Invoking(x => x.Validar(2)).Should().Throw<RegraDeNegocioExcecao>();
 
             }
 
             [Fact]
             public void Dado_ProdutoEncontrado_Espero_ProdutoValido()
             {
-                produtosRepositorio.RecuperarProduto(Arg.Any<int>()).Returns(produtoValido);
+                produtosRepositorio.RecuperarProduto(2).Returns(produtoValido);
                 sut.Validar(2).Should().BeSameAs(produtoValido);
             }
         }
@@ -59,12 +61,15 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
             DateTime dataFabricacao = new DateTime(2023, 4, 1);
             DateTime dataValidade = new DateTime(2023, 5, 1);
 
-            // var produto = sut.Instanciar("Parabrisa", dataFabricacao, dataValidade, 2);
+            ProdutoComando comando = Builder<ProdutoComando>.CreateNew().With(x => x.DataFabricacao, dataFabricacao)
+            .With(x => x.DataValidade, dataValidade).Build();
 
-            // Assert.NotNull(produto);
-            // Assert.Equal("Parabrisa", produto.Descricao);
-            // Assert.Equal(dataFabricacao, produto.DataFabricacao);
-            // Assert.Equal(dataValidade, produto.DataValidade);
+            Produto resultado = sut.Instanciar(comando);
+
+            Assert.NotNull(resultado);
+            Assert.Equal(comando.Descricao, resultado.Descricao);
+            Assert.Equal(dataFabricacao, resultado.DataFabricacao);
+            Assert.Equal(dataValidade, resultado.DataValidade);
             }
         }
 
@@ -73,13 +78,17 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
             [Fact]
             public void Dado_ProdutoValido_Espero_ProdutoInserido()
             {
-                // produtosRepositorio.Inserir(Arg.Any<Produto>()).Returns(produtoValido);
+                 DateTime dataFabricacao = new DateTime(2023, 4, 1);
+                 DateTime dataValidade = new DateTime(2023, 5, 1);
+                ProdutoComando comando = Builder<ProdutoComando>.CreateNew().With(x => x.DataFabricacao, dataFabricacao)
+                .With(x => x.DataValidade, dataValidade).Build();
 
-                // var produto = sut.Inserir(produtoValido);
+                Produto resultado = sut.Inserir(comando);
+                produtosRepositorio.Inserir(resultado).Returns(produtoValido);
 
-                // produtosRepositorio.Received(1).Inserir(produtoValido);
-                // produto.Should().BeOfType<Produto>();
-                // produto.Should().Be(produtoValido);
+                resultado.Should().BeOfType<Produto>();
+                resultado.DataFabricacao.Should().Be(comando.DataFabricacao);
+                resultado.DataValidade.Should().Be(comando.DataValidade);
             }
         }
 
@@ -88,8 +97,20 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
             [Fact]
             public void Quando_MetodoForChamado_Espero_ProdutoAtualizado()
             {
-                produtosRepositorio.RecuperarProduto(Arg.Any<int>()).Returns(produtoValido);
-                produtosRepositorio.Editar(Arg.Any<Produto>()).Returns(produtoValido);
+                produtosRepositorio.RecuperarProduto(1).Returns(produtoValido);
+
+                DateTime dataFabricacao = new DateTime(2023, 4, 1);
+                 DateTime dataValidade = new DateTime(2023, 5, 1);
+                ProdutoComando comando = Builder<ProdutoComando>.CreateNew().With(x => x.DataFabricacao, dataFabricacao)
+                .With(x => x.DataValidade, dataValidade).Build();
+
+                sut.Validar(1).Returns(produtoValido);
+                Produto resultado = sut.Editar(1, comando);
+                produtosRepositorio.Editar(resultado).Returns(produtoValido);
+                fornecedoresServico.Validar(comando.IdFornecedor).Returns(fornecedorValido);
+
+                resultado.DataFabricacao.Should().Be(comando.DataFabricacao);
+                resultado.DataValidade.Should().Be(comando.DataValidade);
             }
         }
 
