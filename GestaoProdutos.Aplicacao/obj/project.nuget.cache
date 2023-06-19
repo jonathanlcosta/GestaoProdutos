@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fe20uf8fJwS5Lc6qQ7FLwifSC4q41g7LSsgbfGhVPkjMsrpwgQrEvm29VI8jJNFzQPHfChCUXIwO4NTCGXUNbQ==",
+  "dgSpecHash": "Wu6xaasvuhCCshZeaYHJXumnWRhvw9sZ3quNUXm5UtqZBtcMmMokDGjzdd0+ZQStT9Hl5rCr4QbnZujb8U+9nQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj",
+  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Aplicacao\\GestaoProdutos.Aplicacao.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",

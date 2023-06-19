@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XxqPvuXVc2OtMM6Q6vWoZfmcrRfOUS0BMnMf4h8tgiCWPQFahdg9JJWWyzIy3rvlL7i5Odmw438Now95EIx9fg==",
+  "dgSpecHash": "Ubr0sJ8TbFfRJlczAkcgR4SMKSKwaysuLSEjYDy8QRr6JDBbGKlkt1xzXfDUiRZadRSZNc+mw55MRk2bHoqQ3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
+  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\fluentnhibernate\\3.1.0\\fluentnhibernate.3.1.0.nupkg.sha512",

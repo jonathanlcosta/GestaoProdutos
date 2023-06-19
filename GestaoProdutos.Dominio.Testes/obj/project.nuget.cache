@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CRgM4nEz2jyJ6o3Cl1aznE6azEzF+5SXwszs9MwyJt/ueMkDruw2Y3h/U9dTFf0yJ5cpJGaKNz/s4knIOWMvrA==",
+  "dgSpecHash": "gO/03B7OxajYsP1PQ1DyHpNHSZ/z3Oea5Wy+Lcq16Zn9FP/f66spwMUJG59E0YKi3N6V+1Ymi+S6mLb1GlaIBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio.Testes\\GestaoProdutos.Dominio.Testes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
-    "C:\\Users\\nickc\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\fluentassertions\\6.8.0\\fluentassertions.6.8.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

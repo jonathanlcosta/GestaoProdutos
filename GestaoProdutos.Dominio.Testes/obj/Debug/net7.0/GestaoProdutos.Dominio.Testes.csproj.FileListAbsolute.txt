@@ -1,4 +1,3 @@
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\CoverletSourceRootsMapping
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\testhost.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\testhost.exe
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -107,3 +106,4 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\net7.0\GestaoProdutos.Dominio.Testes.pdb
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\net7.0\GestaoProdutos.Dominio.Testes.genruntimeconfig.cache
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\net7.0\ref\GestaoProdutos.Dominio.Testes.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\CoverletSourceRootsMapping_GestaoProdutos.Dominio.Testes
