@@ -80,6 +80,7 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Entidades
         [Fact]
         public void Dado_DataDeValidadeValida_Espero_PropriedadesPreenchidas()
         {
+            
             DateTime data = new DateTime(2022, 2, 12);
              sut.SetDataValidade(data);
                 sut.DataValidade.Should().Be(data);

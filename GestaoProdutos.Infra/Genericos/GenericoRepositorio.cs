@@ -7,6 +7,7 @@ using GestaoProdutos.Dominio.Util;
 using GestaoProdutos.Dominio.Util.Filtros.Enumeradores;
 using NHibernate;
 using System.Linq.Dynamic.Core;
+using NHibernate.Linq;
 
 namespace GestaoProdutos.Infra.Genericos
 {
@@ -78,6 +79,46 @@ namespace GestaoProdutos.Infra.Genericos
         public T Recuperar(int id)
         {
             return session.Get<T>(id);
+        }
+
+        public async Task<T> InserirAsync(T entidade)
+        {
+           await session.SaveAsync(entidade);
+           return entidade;
+        }
+
+        public async Task<IList<T>> ListarAsync()
+        {
+          var query = await session.Query<T>().ToListAsync();
+            return query;
+        }
+
+        public async Task<T> RecuperarAsync(int id)
+        {
+            var retorno = await session.GetAsync<T>(id);
+            return retorno;
+        }
+
+        public async Task<T> EditarAsync(T entidade)
+        {
+            await session.UpdateAsync(entidade);
+            return entidade;
+        }
+
+        public async Task ExcluirAsync(T entidade)
+        {
+            await session.DeleteAsync(entidade);
+        }
+
+        public async Task<IQueryable<T>> QueryAsync()
+        {
+            List<T> resultado = await session.Query<T>().ToListAsync();
+            return resultado.AsQueryable();
+        }
+
+        public Task InserirAsync(IEnumerable<T> entidades)
+        {
+            throw new NotImplementedException();
         }
     }
 }

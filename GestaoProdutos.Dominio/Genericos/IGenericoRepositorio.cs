@@ -23,6 +23,16 @@ namespace GestaoProdutos.Dominio.Genericos
         IQueryable<T> Query();
 
         IList<T> QueryList();
+
+        Task InserirAsync(IEnumerable<T> entidades);
+
+        Task<IQueryable<T>> QueryAsync();
+        Task<T> RecuperarAsync(int id);
+
+        Task<T> InserirAsync(T entidade);
+
+        Task<T> EditarAsync(T entidade);
+        Task ExcluirAsync(T entidade);
         
     }
 }

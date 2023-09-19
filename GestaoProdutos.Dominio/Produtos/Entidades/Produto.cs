@@ -65,6 +65,10 @@ namespace GestaoProdutos.Dominio.Produtos.Entidades
             {
                 throw new AtributoObrigatorioExcecao("Data");
             }
+            if(dataValidade <= this.DataFabricacao)
+            {
+                throw new RegraDeNegocioExcecao("A data de validade não pode ser menor ou igual a data de fabricação");
+            }
             DataValidade = dataValidade;
         }
 
