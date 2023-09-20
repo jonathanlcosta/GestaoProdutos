@@ -12,6 +12,7 @@ namespace GestaoProdutos.Dominio.Usuarios.Servicos.Interfaces
         Task<Usuario> InserirAsync(UsuarioComando comando);
         Usuario Instanciar(UsuarioComando comando);
         Task<Usuario> RecuperarAsync(int id);
+        Task<Usuario> RecuperarUsuarioPorEmailSenha(string email, string senha);
         
     }
 }

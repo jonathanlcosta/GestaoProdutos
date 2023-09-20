@@ -3,9 +3,11 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using GestaoProdutos.Aplicacao.Produtos.Profiles;
 using GestaoProdutos.Aplicacao.Produtos.Servicos;
+using GestaoProdutos.DataTransfer.Usuarios.Request;
 using GestaoProdutos.Dominio.Produtos.Servicos;
 using GestaoProdutos.Infra.Produtos;
 using GestaoProdutos.Infra.Produtos.Mapeamentos;
+using MediatR;
 using Microsoft.OpenApi.Models;
 using NHibernate;
 using ISession = NHibernate.ISession;
@@ -15,6 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddMediatR(typeof(UsuarioInserirRequest));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

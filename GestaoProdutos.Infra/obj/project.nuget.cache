@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AOiYHAe3e2pyw5giLrzXbzfVkRCdw9+GQ6Niiz57CTIEtevargg93YgqLAes4aWjQn4E/LoEkZIIDF4+54sOyQ==",
+  "dgSpecHash": "PqCZsTw7izi0jVx0uPgejrA8i+ZI7B6D7cg+6sbzKnSQv4R7+7KbM7uLFiwjQQgvCsyykP1hDor0XoPY0d8Ngg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
+  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",

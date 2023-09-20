@@ -7,6 +7,7 @@ namespace GestaoProdutos.Dominio.Usuarios.Entidades
 {
     public class Usuario
     {
+        public virtual int Id { get; protected set; }
         public virtual string Nome { get; protected set; }
         public virtual string Email { get; protected set; }
         public virtual string Senha { get; protected set; }

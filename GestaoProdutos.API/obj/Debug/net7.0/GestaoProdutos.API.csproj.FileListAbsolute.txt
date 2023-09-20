@@ -79,3 +79,11 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\Gest
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.genruntimeconfig.cache
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\ref\GestaoProdutos.API.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.xml
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\BCrypt.Net-Core.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.Contracts.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll

@@ -42,5 +42,12 @@ namespace GestaoProdutos.Dominio.Usuarios.Servicos
             throw new RegraDeNegocioExcecao("Usuario não encontrado");
             return usuario;
         }
+
+        public async Task<Usuario> RecuperarUsuarioPorEmailSenha(string email, string senha)
+        {
+            var query = await usuariosRepositorio.QueryAsync();
+            Usuario usuario = query.Where(x => x.Email == email && x.Senha == senha).FirstOrDefault();
+            return usuario;
+        }
     }
 }
