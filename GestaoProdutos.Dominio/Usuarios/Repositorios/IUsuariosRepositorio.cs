@@ -9,6 +9,6 @@ namespace GestaoProdutos.Dominio.Usuarios.Repositorios
 {
     public interface IUsuariosRepositorio : IGenericoRepositorio<Usuario>
     {
-        
+        Task<Usuario> RecuperarUsuarioPorEmailSenhaAsync(string email, string senha);
     }
 }

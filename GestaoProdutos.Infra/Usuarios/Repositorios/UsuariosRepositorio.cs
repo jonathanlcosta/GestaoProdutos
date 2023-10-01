@@ -6,6 +6,7 @@ using GestaoProdutos.Dominio.Usuarios.Entidades;
 using GestaoProdutos.Dominio.Usuarios.Repositorios;
 using GestaoProdutos.Infra.Genericos;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace GestaoProdutos.Infra.Usuarios.Repositorios
 {
@@ -13,6 +14,11 @@ namespace GestaoProdutos.Infra.Usuarios.Repositorios
     {
         public UsuariosRepositorio(ISession session) : base(session)
         {
+        }
+
+        public async Task<Usuario> RecuperarUsuarioPorEmailSenhaAsync(string email, string senha)
+        {
+            return await Query().Where(x => x.Email == email && x.Senha == senha).FirstOrDefaultAsync();
         }
     }
 }

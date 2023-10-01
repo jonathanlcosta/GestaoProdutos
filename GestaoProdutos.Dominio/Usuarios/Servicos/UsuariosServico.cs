@@ -32,7 +32,7 @@ namespace GestaoProdutos.Dominio.Usuarios.Servicos
         public Usuario Instanciar(UsuarioComando comando)
         {
             string senhaHash = autenticacoesServico.TransformaSenhaEmHash(comando.Senha);
-            return new Usuario(comando.Nome, comando.Email, senhaHash);
+            return new Usuario(comando.Nome, comando.Email, senhaHash, comando.TipoUsuario);
         }
 
         public async Task<Usuario> RecuperarAsync(int id)

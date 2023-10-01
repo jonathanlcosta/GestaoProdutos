@@ -17,6 +17,7 @@ namespace GestaoProdutos.Infra.Usuarios.Mapeamentos
             Map(x=>x.Nome).Column("nome");
             Map(x=>x.Email).Column("email");
             Map(x=>x.Senha).Column("senha");
+            Map(x => x.TipoUsuario, "tipoUsuario");
         }
     }
 }
