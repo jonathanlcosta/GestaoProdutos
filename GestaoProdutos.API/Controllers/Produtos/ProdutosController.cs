@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestaoProdutos.Aplicacao.Produtos.Servicos.Interfaces;
 using GestaoProdutos.DataTransfer.Produtos.Request;
 using GestaoProdutos.DataTransfer.Produtos.Response;
