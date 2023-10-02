@@ -56,9 +56,7 @@ namespace GestaoProdutos.Infra.Produtos
 
         public async Task<Produto> RecuperarProdutoAsync(int codigo)
         {
-            var produto = await Query()
-            .Where(x => x.Codigo == codigo && x.Situacao != SituacaoProdutoEnum.Inativo)
-            .FirstOrDefaultAsync();
+            Produto produto = await Query().Where(x => x.Codigo == codigo && x.Situacao != SituacaoProdutoEnum.Inativo).FirstOrDefaultAsync();
             return produto;
         }
 
