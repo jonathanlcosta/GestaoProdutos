@@ -23,9 +23,9 @@ namespace GestaoProdutos.API.Produtos.Controllers
       /// <param name="codigo"></param>
     /// <returns></returns>
         [HttpGet("{codigo}")]
-        public ActionResult<ProdutoResponse> Recuperar(int codigo)
+        public async Task<ActionResult<ProdutoResponse>> Recuperar(int codigo)
         {
-            var response = produtosAppServico.Recuperar(codigo);
+            var response = await produtosAppServico.RecuperarAsync(codigo);
 
             if (response == null)
                 return NotFound();
@@ -39,8 +39,8 @@ namespace GestaoProdutos.API.Produtos.Controllers
       /// <param name="request"></param>
     /// <returns></returns>
        [HttpGet]
-        public ActionResult<PaginacaoConsulta<ProdutoResponse>> Listar([FromQuery] ProdutoListarRequest request)
-        {    var response = produtosAppServico.Listar(request);
+        public async Task<ActionResult<PaginacaoConsulta<ProdutoResponse>>> Listar([FromQuery] ProdutoListarRequest request)
+        {    var response = await produtosAppServico.ListarAsync(request);
             return Ok(response);
         }
 
@@ -50,9 +50,9 @@ namespace GestaoProdutos.API.Produtos.Controllers
       /// <param name="produto"></param>
     /// <returns></returns>
         [HttpPost]
-        public ActionResult<ProdutoResponse> Inserir([FromBody] ProdutoInserirRequest produto)
+        public async Task<ActionResult<ProdutoResponse>> Inserir([FromBody] ProdutoInserirRequest produto)
         {
-            var retorno = produtosAppServico.Inserir(produto);
+            var retorno = await produtosAppServico.InserirAsync(produto);
             return Ok(retorno);
         }
 
@@ -63,10 +63,10 @@ namespace GestaoProdutos.API.Produtos.Controllers
       /// <param name="produto"></param>
     /// <returns></returns>
         [HttpPut("{codigo}")]
-        public ActionResult Editar(int codigo, [FromBody] ProdutoEditarRequest produto)
+        public async Task<ActionResult> Editar(int codigo, [FromBody] ProdutoEditarRequest produto)
         {
 
-            produtosAppServico.Editar(codigo, produto);
+           await produtosAppServico.EditarAsync(codigo, produto);
             return Ok();
         }
 
@@ -77,9 +77,9 @@ namespace GestaoProdutos.API.Produtos.Controllers
     /// <returns></returns>
         [HttpDelete]
         [Route("{codigo}")]
-        public ActionResult Excluir(int codigo)
+        public async Task<ActionResult> Excluir(int codigo)
         {
-            produtosAppServico.Excluir(codigo);
+            await produtosAppServico.ExcluirAsync(codigo);
             return Ok();
         }
     }

@@ -10,9 +10,9 @@ namespace GestaoProdutos.Dominio.Produtos.Servicos.Interfaces
 {
     public interface IProdutosServico
     {
-        Produto Validar(int codigo);
-        Produto Inserir(ProdutoComando comando);
-        Produto Instanciar(ProdutoComando comando);
-        Produto Editar(int codigo, ProdutoComando comando);
+        Task<Produto> ValidarAsync(int codigo);
+        Task<Produto> InserirAsync(ProdutoComando comando);
+        Task<Produto> InstanciarAsync(ProdutoComando comando);
+        Task<Produto> EditarAsync(int codigo, ProdutoComando comando);
     }
 }

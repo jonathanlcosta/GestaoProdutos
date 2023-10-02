@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GestaoProdutos.Aplicacao.Produtos.Servicos.Interfaces;
@@ -9,7 +6,6 @@ using GestaoProdutos.DataTransfer.Produtos.Request;
 using GestaoProdutos.DataTransfer.Produtos.Response;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Produtos.Entidades;
-using GestaoProdutos.Dominio.Produtos.Enumeradores;
 using GestaoProdutos.Dominio.Produtos.Repositorios;
 using GestaoProdutos.Dominio.Produtos.Repositorios.Filtros;
 using GestaoProdutos.Dominio.Produtos.Servicos.Comandos;
@@ -36,13 +32,13 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             this.fornecedoresServico = fornecedoresServico;
             this.unitOfWork = unitOfWork;
         }
-        public ProdutoResponse Editar(int codigo, ProdutoEditarRequest request)
+        public async Task<ProdutoResponse> EditarAsync(int codigo, ProdutoEditarRequest request)
         {
              ProdutoComando comando = mapper.Map<ProdutoComando>(request);
             try
             {
                     unitOfWork.BeginTransaction();
-                    Produto produto = produtosServico.Editar(codigo, comando);
+                    Produto produto = await produtosServico.EditarAsync(codigo, comando);
                     unitOfWork.Commit();
                 return mapper.Map<ProdutoResponse>(produto);;
             }
@@ -53,13 +49,13 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             }
         }
 
-        public void Excluir(int codigo)
+        public async Task ExcluirAsync(int codigo)
         {
             try
             {
                 unitOfWork.BeginTransaction();
-                var produto = produtosServico.Validar(codigo);
-                produtosRepositorio.Deletar(produto);
+                var produto = await produtosServico.ValidarAsync(codigo);
+                await produtosRepositorio.DeletarAsync(produto);
                 unitOfWork.Commit();
             }
             catch
@@ -69,13 +65,13 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             }
         }
 
-        public ProdutoResponse Inserir(ProdutoInserirRequest request)
+        public async Task<ProdutoResponse> InserirAsync(ProdutoInserirRequest request)
         {
              ProdutoComando comando = mapper.Map<ProdutoComando>(request);
             try
             {
                 unitOfWork.BeginTransaction();
-                Produto produto = produtosServico.Inserir(comando);
+                Produto produto = await produtosServico.InserirAsync(comando);
                 unitOfWork.Commit();
                 return mapper.Map<ProdutoResponse>(produto);
             }
@@ -86,20 +82,19 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             }
         }
 
-        public PaginacaoConsulta<ProdutoResponse> Listar(ProdutoListarRequest request)
+        public async Task<PaginacaoConsulta<ProdutoResponse>> ListarAsync(ProdutoListarRequest request)
         {
             ProdutoListarFiltro filtro = mapper.Map<ProdutoListarFiltro>(request);
-            IQueryable<Produto> query = produtosRepositorio.Filtrar(filtro);
+            IQueryable<Produto> query = await produtosRepositorio.FiltrarAsync(filtro);
 
             PaginacaoConsulta<Produto> produtos = produtosRepositorio.Listar(query, request.Qt, request.Pg, request.CpOrd, request.TpOrd);
-            PaginacaoConsulta<ProdutoResponse> response;
-            response = mapper.Map<PaginacaoConsulta<ProdutoResponse>>(produtos);
-            return response;
+
+            return mapper.Map<PaginacaoConsulta<ProdutoResponse>>(produtos);
         }
 
-        public ProdutoResponse Recuperar(int codigo)
+        public async Task<ProdutoResponse> RecuperarAsync(int codigo)
         {
-            Produto produto = produtosServico.Validar(codigo);
+            Produto produto = await produtosServico.ValidarAsync(codigo);
             return mapper.Map<ProdutoResponse>(produto);
         }
     }

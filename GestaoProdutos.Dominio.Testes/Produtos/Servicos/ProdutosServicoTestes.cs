@@ -12,6 +12,7 @@ using GestaoProdutos.Dominio.Produtos.Repositorios;
 using GestaoProdutos.Dominio.Produtos.Servicos;
 using GestaoProdutos.Dominio.Produtos.Servicos.Comandos;
 using NSubstitute;
+using NSubstitute.ReturnsExtensions;
 using Xunit;
 
 namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
@@ -40,23 +41,23 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
             [Fact]
             public void Dado_ProdutoNaoEncontrado_Espero_RegraDeNegocioExcecao()
             {
-                produtosRepositorio.RecuperarProduto(2).Returns(x => null);
-                sut.Invoking(x => x.Validar(2)).Should().Throw<RegraDeNegocioExcecao>();
+                produtosRepositorio.RecuperarProdutoAsync(2).ReturnsNull();
+                sut.Invoking(x => x.ValidarAsync(2)).Should().ThrowAsync<RegraDeNegocioExcecao>();
 
             }
 
             [Fact]
             public void Dado_ProdutoEncontrado_Espero_ProdutoValido()
             {
-                produtosRepositorio.RecuperarProduto(2).Returns(produtoValido);
-                sut.Validar(2).Should().BeSameAs(produtoValido);
+                produtosRepositorio.RecuperarProdutoAsync(2).Returns(produtoValido);
+                sut.ValidarAsync(2).Should().BeSameAs(produtoValido);
             }
         }
 
         public class InstanciarMetodo : ProdutosServicoTestes
         {
             [Fact]
-            public void Dado_ParametrosParaCriarProdutos_Espero_ProdutoInstanciado()
+            public async Task Dado_ParametrosParaCriarProdutos_Espero_ProdutoInstanciado()
             {
             DateTime dataFabricacao = new DateTime(2023, 4, 1);
             DateTime dataValidade = new DateTime(2023, 5, 1);
@@ -64,7 +65,7 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
             ProdutoComando comando = Builder<ProdutoComando>.CreateNew().With(x => x.DataFabricacao, dataFabricacao)
             .With(x => x.DataValidade, dataValidade).Build();
 
-            Produto resultado = sut.Instanciar(comando);
+            Produto resultado = await sut.InstanciarAsync(comando);
 
             Assert.NotNull(resultado);
             Assert.Equal(comando.Descricao, resultado.Descricao);
@@ -76,15 +77,15 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
         public class InserirMetodo : ProdutosServicoTestes
         {
             [Fact]
-            public void Dado_ProdutoValido_Espero_ProdutoInserido()
+            public async Task Dado_ProdutoValido_Espero_ProdutoInserido()
             {
                  DateTime dataFabricacao = new DateTime(2023, 4, 1);
                  DateTime dataValidade = new DateTime(2023, 5, 1);
                 ProdutoComando comando = Builder<ProdutoComando>.CreateNew().With(x => x.DataFabricacao, dataFabricacao)
                 .With(x => x.DataValidade, dataValidade).Build();
 
-                Produto resultado = sut.Inserir(comando);
-                produtosRepositorio.Inserir(resultado).Returns(produtoValido);
+                Produto resultado = await sut.InserirAsync(comando);
+                produtosRepositorio.InserirAsync(resultado).Returns(produtoValido);
 
                 resultado.Should().BeOfType<Produto>();
                 resultado.DataFabricacao.Should().Be(comando.DataFabricacao);
@@ -95,19 +96,19 @@ namespace GestaoProdutos.Dominio.Testes.Produtos.Servicos
         public class EditarMetodo : ProdutosServicoTestes
         {
             [Fact]
-            public void Quando_MetodoForChamado_Espero_ProdutoAtualizado()
+            public async Task Quando_MetodoForChamado_Espero_ProdutoAtualizado()
             {
-                produtosRepositorio.RecuperarProduto(1).Returns(produtoValido);
+                produtosRepositorio.RecuperarProdutoAsync(1).Returns(produtoValido);
 
                 DateTime dataFabricacao = new DateTime(2023, 4, 1);
                  DateTime dataValidade = new DateTime(2023, 5, 1);
                 ProdutoComando comando = Builder<ProdutoComando>.CreateNew().With(x => x.DataFabricacao, dataFabricacao)
                 .With(x => x.DataValidade, dataValidade).Build();
 
-                sut.Validar(1).Returns(produtoValido);
-                Produto resultado = sut.Editar(1, comando);
-                produtosRepositorio.Editar(resultado).Returns(produtoValido);
-                fornecedoresServico.Validar(comando.IdFornecedor).Returns(fornecedorValido);
+                sut.ValidarAsync(1).Returns(produtoValido);
+                Produto resultado = await sut.EditarAsync(1, comando);
+                produtosRepositorio.EditarAsync(resultado).Returns(produtoValido);
+                fornecedoresServico.ValidarAsync(comando.IdFornecedor).Returns(fornecedorValido);
 
                 resultado.DataFabricacao.Should().Be(comando.DataFabricacao);
                 resultado.DataValidade.Should().Be(comando.DataValidade);

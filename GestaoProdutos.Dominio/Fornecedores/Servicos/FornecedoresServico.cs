@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Fornecedores.Repositorios;
@@ -17,19 +13,19 @@ namespace GestaoProdutos.Dominio.Fornecedores.Servicos
         {
             this.fornecedoresRepositorio = fornecedoresRepositorio;
         }
-        public Fornecedor Editar(int id, FornecedorComando comando)
+        public async Task<Fornecedor> EditarAsync(int id, FornecedorComando comando)
         {
-            Fornecedor fornecedor = Validar(id);
+            Fornecedor fornecedor = await ValidarAsync(id);
             fornecedor.SetDescricaoFornecedor(comando.Descricao);
             fornecedor.SetCnpj(comando.Cnpj);
-            fornecedoresRepositorio.Editar(fornecedor);
+            await fornecedoresRepositorio.EditarAsync(fornecedor);
             return fornecedor;
         }
 
-        public Fornecedor Inserir(FornecedorComando comando)
+        public async Task<Fornecedor> InserirAsync(FornecedorComando comando)
         {
             Fornecedor fornecedor = Instanciar(comando);
-            fornecedoresRepositorio.Inserir(fornecedor);
+            await fornecedoresRepositorio.InserirAsync(fornecedor);
             return fornecedor;
         }
 
@@ -39,9 +35,9 @@ namespace GestaoProdutos.Dominio.Fornecedores.Servicos
             return fornecedor;
         }
 
-        public Fornecedor Validar(int id)
+        public async Task<Fornecedor> ValidarAsync(int id)
         {
-            Fornecedor fornecedor = fornecedoresRepositorio.Recuperar(id);
+            Fornecedor fornecedor = await fornecedoresRepositorio.RecuperarAsync(id);
             if (fornecedor is null)
             {
                 throw new RegraDeNegocioExcecao("Fornecedor não encontrado");

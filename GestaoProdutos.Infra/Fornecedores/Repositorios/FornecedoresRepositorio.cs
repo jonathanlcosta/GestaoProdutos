@@ -17,9 +17,9 @@ namespace GestaoProdutos.Infra.Fornecedores
             
         }
 
-        public IQueryable<Fornecedor> Filtrar(FornecedorListarFiltro filtro)
+        public async Task<IQueryable<Fornecedor>> FiltrarAsync(FornecedorListarFiltro filtro)
         {
-           IQueryable<Fornecedor> query = Query();
+           IQueryable<Fornecedor> query = await QueryAsync();
 
             if (!string.IsNullOrWhiteSpace(filtro.Descricao))
             {

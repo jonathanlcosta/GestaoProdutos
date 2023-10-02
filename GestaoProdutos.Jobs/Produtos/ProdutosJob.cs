@@ -29,7 +29,7 @@ namespace GestaoProdutos.Jobs.Produtos
 
                 try
                 {
-                    var quantidadeProdutos = produtosAppServico.Listar(new ProdutoListarRequest()).Total;
+                    var quantidadeProdutos = await produtosAppServico.ListarAsync(new ProdutoListarRequest());
 
                     this.logger.LogInformation("Temos {quantidadeProdutos} Produtos!", quantidadeProdutos);
                  

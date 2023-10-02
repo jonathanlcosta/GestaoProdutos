@@ -16,15 +16,13 @@ namespace GestaoProdutos.Dominio.Genericos
         T Editar(T entidade);
 
         void Excluir(T entidade);
-        void Inserir(IEnumerable<T> entidades);
+        Task InserirAsync(IEnumerable<T> entidades);
 
-        PaginacaoConsulta<T> Listar(IQueryable<T> query, int qt, int pg, string cpOrd, TipoOrdenacaoEnum tpOrd);
+         PaginacaoConsulta<T> Listar(IQueryable<T> query, int qt, int pg, string cpOrd, TipoOrdenacaoEnum tpOrd);
 
         IQueryable<T> Query();
 
         IList<T> QueryList();
-
-        Task InserirAsync(IEnumerable<T> entidades);
 
         Task<IQueryable<T>> QueryAsync();
         Task<T> RecuperarAsync(int id);

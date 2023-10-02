@@ -10,10 +10,10 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos.Interfaces
 {
     public interface IProdutosAppServico
     {
-        PaginacaoConsulta<ProdutoResponse> Listar(ProdutoListarRequest request);
-        ProdutoResponse Recuperar(int codigo);
-        ProdutoResponse Inserir(ProdutoInserirRequest request);
-        ProdutoResponse Editar(int codigo, ProdutoEditarRequest request);
-        void Excluir(int codigo);
+        Task<PaginacaoConsulta<ProdutoResponse>> ListarAsync(ProdutoListarRequest request);
+        Task<ProdutoResponse> RecuperarAsync(int codigo);
+        Task<ProdutoResponse> InserirAsync(ProdutoInserirRequest request);
+        Task<ProdutoResponse> EditarAsync(int codigo, ProdutoEditarRequest request);
+        Task ExcluirAsync(int codigo);
     }
 }

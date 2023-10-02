@@ -9,9 +9,9 @@ namespace GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces
 {
     public interface IFornecedoresServico
     {
-        Fornecedor Validar(int id);
-        Fornecedor Inserir(FornecedorComando comando);
+        Task<Fornecedor> ValidarAsync(int id);
+        Task<Fornecedor> InserirAsync(FornecedorComando comando);
         Fornecedor Instanciar(FornecedorComando comando);
-        Fornecedor Editar(int id, FornecedorComando comando);
+        Task<Fornecedor> EditarAsync(int id, FornecedorComando comando);
     }
 }

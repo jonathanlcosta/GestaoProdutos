@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestaoProdutos.Dominio.Produtos.Entidades;
 using GestaoProdutos.Dominio.Produtos.Enumeradores;
 using GestaoProdutos.Dominio.Produtos.Repositorios;
 using GestaoProdutos.Dominio.Produtos.Repositorios.Filtros;
 using GestaoProdutos.Infra.Genericos;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace GestaoProdutos.Infra.Produtos
 {
@@ -18,15 +15,16 @@ namespace GestaoProdutos.Infra.Produtos
             
         }
 
-        public void Deletar(Produto produto)
+        public async Task DeletarAsync(Produto produto)
         {
             produto.SetSituacao(SituacaoProdutoEnum.Inativo);
-            session.Update(produto);
+            await session.UpdateAsync(produto);
         }
 
-        public IQueryable<Produto> Filtrar(ProdutoListarFiltro filtro)
+        public async Task<IQueryable<Produto>> FiltrarAsync(ProdutoListarFiltro filtro)
         {
-           IQueryable<Produto> query = Query().Where(x=>x.Situacao != SituacaoProdutoEnum.Inativo);
+           IQueryable<Produto> query = await QueryAsync();
+           query.Where(x=>x.Situacao != SituacaoProdutoEnum.Inativo);
 
             if (!string.IsNullOrWhiteSpace(filtro.Descricao))
             {
@@ -56,11 +54,11 @@ namespace GestaoProdutos.Infra.Produtos
             return query;
         }
 
-        public Produto RecuperarProduto(int codigo)
+        public async Task<Produto> RecuperarProdutoAsync(int codigo)
         {
-            var produto = session.Query<Produto>()
+            var produto = await Query()
             .Where(x => x.Codigo == codigo && x.Situacao != SituacaoProdutoEnum.Inativo)
-            .FirstOrDefault();
+            .FirstOrDefaultAsync();
             return produto;
         }
 

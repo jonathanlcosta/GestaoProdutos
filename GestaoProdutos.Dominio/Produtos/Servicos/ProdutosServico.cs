@@ -21,35 +21,35 @@ namespace GestaoProdutos.Dominio.Produtos.Servicos
             this.produtosRepositorio = produtosRepositorio;
             this.fornecedoresServico = fornecedoresServico;
         }
-        public Produto Editar(int codigo, ProdutoComando comando)
+        public async Task<Produto> EditarAsync(int codigo, ProdutoComando comando)
         {
-            Fornecedor fornecedor = fornecedoresServico.Validar(comando.IdFornecedor);
-            Produto produto = Validar(codigo);
+            Fornecedor fornecedor = await fornecedoresServico.ValidarAsync(comando.IdFornecedor);
+            Produto produto = await ValidarAsync(codigo);
             produto.SetDescProduto(comando.Descricao);
             produto.SetDataFabricacao(comando.DataFabricacao);
             produto.SetDataValidade(comando.DataValidade);
             produto.SetFornecedor(fornecedor);
-            produtosRepositorio.Editar(produto);
+            await produtosRepositorio.EditarAsync(produto);
             return produto;
         }
 
-        public Produto Inserir(ProdutoComando comando)
+        public async Task<Produto> InserirAsync(ProdutoComando comando)
         {
-            Produto produto = Instanciar(comando);
-            produtosRepositorio.Inserir(produto);
+            Produto produto = await InstanciarAsync(comando);
+            await produtosRepositorio.InserirAsync(produto);
             return produto;
         }
 
-        public Produto Instanciar(ProdutoComando comando)
+        public async Task<Produto> InstanciarAsync(ProdutoComando comando)
         {
-            Fornecedor fornecedor = fornecedoresServico.Validar(comando.IdFornecedor);
+            Fornecedor fornecedor = await fornecedoresServico.ValidarAsync(comando.IdFornecedor);
             Produto produto = new(comando.Descricao, comando.DataFabricacao, comando.DataValidade, fornecedor);
             return produto;
         }
 
-        public Produto Validar(int codigo)
+        public async Task<Produto> ValidarAsync(int codigo)
         {
-            Produto produto = this.produtosRepositorio.RecuperarProduto(codigo);
+            Produto produto = await produtosRepositorio.RecuperarProdutoAsync(codigo);
             if (produto is null)
             {
                 throw new RegraDeNegocioExcecao("Produto não encontrado");

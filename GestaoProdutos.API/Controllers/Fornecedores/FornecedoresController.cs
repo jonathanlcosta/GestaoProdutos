@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestaoProdutos.Aplicacao.Fornecedores.Servicos.Interfaces;
 using GestaoProdutos.DataTransfer.Fornecedores.Request;
 using GestaoProdutos.DataTransfer.Fornecedores.Response;
@@ -27,9 +23,9 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
       /// <param name="id"></param>
     /// <returns></returns>
         [HttpGet("{id}")]
-        public ActionResult<FornecedorResponse> Recuperar(int id)
+        public async Task<ActionResult<FornecedorResponse>> Recuperar(int id)
         {
-            var response = fornecedoresAppServico.Recuperar(id);
+            var response = await fornecedoresAppServico.RecuperarAsync(id);
 
             if (response == null)
                 return NotFound();
@@ -43,8 +39,8 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
       /// <param name="request"></param>
     /// <returns></returns>
        [HttpGet]
-        public ActionResult<PaginacaoConsulta<FornecedorResponse>> Listar([FromQuery] FornecedorListarRequest request)
-        {    var response = fornecedoresAppServico.Listar(request);
+        public async Task<ActionResult<PaginacaoConsulta<FornecedorResponse>>> Listar([FromQuery] FornecedorListarRequest request)
+        {    var response = await fornecedoresAppServico.ListarAsync(request);
             return Ok(response);
         }
 
@@ -54,9 +50,9 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
       /// <param name="fornecedor"></param>
     /// <returns></returns>
         [HttpPost]
-        public ActionResult<FornecedorResponse> Inserir([FromBody] FornecedorInserirRequest fornecedor)
+        public async Task<ActionResult<FornecedorResponse>> Inserir([FromBody] FornecedorInserirRequest fornecedor)
         {
-            var retorno = fornecedoresAppServico.Inserir(fornecedor);
+            var retorno = await fornecedoresAppServico.InserirAsync(fornecedor);
             return Ok(retorno);
         }
 
@@ -67,10 +63,9 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
       /// <param name="fornecedor"></param>
     /// <returns></returns>
         [HttpPut("{id}")]
-        public ActionResult Editar(int id, [FromBody] FornecedorEditarRequest fornecedor)
+        public async Task<ActionResult> Editar(int id, [FromBody] FornecedorEditarRequest fornecedor)
         {
-
-            fornecedoresAppServico.Editar(id, fornecedor);
+            await fornecedoresAppServico.EditarAsync(id, fornecedor);
             return Ok();
         }
 
@@ -81,9 +76,9 @@ namespace GestaoProdutos.API.Controllers.Fornecedores
     /// <returns></returns>
         [HttpDelete]
         [Route("{id}")]
-        public ActionResult Excluir(int id)
+        public async Task<ActionResult> Excluir(int id)
         {
-            fornecedoresAppServico.Excluir(id);
+            await fornecedoresAppServico.ExcluirAsync(id);
             return Ok();
         }
     }

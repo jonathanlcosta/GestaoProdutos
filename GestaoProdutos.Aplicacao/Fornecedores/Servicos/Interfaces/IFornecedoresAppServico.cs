@@ -10,10 +10,10 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos.Interfaces
 {
     public interface IFornecedoresAppServico
     {
-        PaginacaoConsulta<FornecedorResponse> Listar(FornecedorListarRequest request);
-        FornecedorResponse Recuperar(int id);
-        FornecedorResponse Inserir(FornecedorInserirRequest request);
-        FornecedorResponse Editar(int id, FornecedorEditarRequest request);
-        void Excluir(int id);
+        Task<PaginacaoConsulta<FornecedorResponse>> ListarAsync(FornecedorListarRequest request);
+        Task<FornecedorResponse> RecuperarAsync(int id);
+        Task<FornecedorResponse> InserirAsync(FornecedorInserirRequest request);
+        Task<FornecedorResponse> EditarAsync(int id, FornecedorEditarRequest request);
+        Task ExcluirAsync(int id);
     }
 }

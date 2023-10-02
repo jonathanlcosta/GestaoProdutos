@@ -10,6 +10,6 @@ namespace GestaoProdutos.Dominio.Fornecedores.Repositorios
 {
     public interface IFornecedoresRepositorio : IGenericoRepositorio<Fornecedor>
     {
-         IQueryable<Fornecedor> Filtrar(FornecedorListarFiltro filtro);
+         Task<IQueryable<Fornecedor>> FiltrarAsync(FornecedorListarFiltro filtro);
     }
 }

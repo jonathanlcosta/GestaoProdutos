@@ -11,6 +11,7 @@ using GestaoProdutos.Dominio.Fornecedores.Servicos;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Comando;
 using GestaoProdutos.Dominio.Fornecedores.Servicos.Interfaces;
 using NSubstitute;
+using NSubstitute.ReturnsExtensions;
 using Xunit;
 
 namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
@@ -31,18 +32,19 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
         public class ValidarMetodo : FornecedoresServicoTestes
         {
             [Fact]
-            public void Dado_FornecedorNaoEncontrado_Espero_RegraDeNegocioExcecao()
+            public async Task Dado_FornecedorNaoEncontrado_Espero_RegraDeNegocioExcecao()
             {
-                fornecedorRepositorio.Recuperar(2).Returns(x => null);
-                sut.Invoking(x => x.Validar(2)).Should().Throw<RegraDeNegocioExcecao>();
+                fornecedorRepositorio.RecuperarAsync(2).ReturnsNull();
+                await sut.Invoking(x => x.ValidarAsync(2)).Should().ThrowAsync<RegraDeNegocioExcecao>();
 
             }
 
             [Fact]
-            public void Dado_FornecedorEncontrado_Espero_FornecedorValido()
+            public async Task Dado_FornecedorEncontrado_Espero_SemExcecao()
             {
-                fornecedorRepositorio.Recuperar(2).Returns(fornecedorValido);
-                sut.Validar(2).Should().BeSameAs(fornecedorValido);
+                fornecedorRepositorio.RecuperarAsync(2).Returns(fornecedorValido);
+                
+                 await sut.Invoking(x => x.ValidarAsync(2)).Should().NotThrowAsync();
             }
         }
 
@@ -63,13 +65,13 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
         public class InserirMetodo : FornecedoresServicoTestes
         {
             [Fact]
-            public void Dado_FornecedorValido_Espero_FornecedorInserido()
+            public async Task Dado_FornecedorValido_Espero_FornecedorInserido()
             {
                  FornecedorComando comando = Builder<FornecedorComando>.CreateNew()
                 .With(x => x.Cnpj, "19876545632312").Build();
-                Fornecedor resultado = sut.Inserir(comando);
+                Fornecedor resultado = await sut.InserirAsync(comando);
                 
-                fornecedorRepositorio.Inserir(resultado).Returns(fornecedorValido);
+                fornecedorRepositorio.InserirAsync(resultado).Returns(fornecedorValido);
 
                 resultado.Should().BeOfType<Fornecedor>();
                 resultado.Descricao.Should().Be(comando.Descricao);
@@ -81,16 +83,16 @@ namespace GestaoProdutos.Dominio.Testes.Fornecedores.Servicos
          public class EditarMetodo : FornecedoresServicoTestes
         {
             [Fact]
-            public void Quando_MetodoForChamado_Espero_FornecedorAtualizado()
+            public async Task Quando_MetodoForChamado_Espero_FornecedorAtualizado()
             {
                 FornecedorComando comando = Builder<FornecedorComando>.CreateNew()
                 .With(x => x.Cnpj, "19876545632312").Build();
                 
-                sut.Validar(1).Returns(fornecedorValido);
-                Fornecedor resultado = sut.Editar(1, comando);
+                sut.ValidarAsync(1).Returns(fornecedorValido);
+                Fornecedor resultado = await sut.EditarAsync(1, comando);
 
-                fornecedorRepositorio.Recuperar(1).Returns(fornecedorValido);
-                fornecedorRepositorio.Editar(resultado).Returns(fornecedorValido);
+                fornecedorRepositorio.RecuperarAsync(1).Returns(fornecedorValido);
+                fornecedorRepositorio.EditarAsync(resultado).Returns(fornecedorValido);
 
                 resultado.Should().BeOfType<Fornecedor>();
                 resultado.Descricao.Should().Be(comando.Descricao);

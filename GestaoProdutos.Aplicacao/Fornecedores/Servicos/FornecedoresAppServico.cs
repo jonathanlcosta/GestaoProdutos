@@ -33,13 +33,13 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             this.unitOfWork = unitOfWork;
         }
 
-        public FornecedorResponse Editar(int id, FornecedorEditarRequest request)
+        public async Task<FornecedorResponse> EditarAsync(int id, FornecedorEditarRequest request)
         {
             FornecedorComando comando = mapper.Map<FornecedorComando>(request);
             try
             {
                 unitOfWork.BeginTransaction();
-                Fornecedor fornecedor = fornecedoresServico.Editar(id, comando);          
+                Fornecedor fornecedor = await fornecedoresServico.EditarAsync(id, comando);          
                 unitOfWork.Commit();
                 return mapper.Map<FornecedorResponse>(fornecedor);;
             }
@@ -50,13 +50,13 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             }
         }
 
-        public void Excluir(int id)
+        public async Task ExcluirAsync(int id)
         {
             try
             {
                 unitOfWork.BeginTransaction();
-                Fornecedor fornecedor = fornecedoresServico.Validar(id);
-                fornecedoresRepositorio.Excluir(fornecedor);
+                Fornecedor fornecedor = await fornecedoresServico.ValidarAsync(id);
+                await fornecedoresRepositorio.ExcluirAsync(fornecedor);
                 unitOfWork.Commit();
             }
             catch
@@ -66,13 +66,13 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             }
         }
 
-        public FornecedorResponse Inserir(FornecedorInserirRequest request)
+        public async Task<FornecedorResponse> InserirAsync(FornecedorInserirRequest request)
         {
           FornecedorComando comando = mapper.Map<FornecedorComando>(request);
             try
             {
                 unitOfWork.BeginTransaction();
-                Fornecedor fornecedor = fornecedoresServico.Inserir(comando);
+                Fornecedor fornecedor = await fornecedoresServico.InserirAsync(comando);
                 unitOfWork.Commit();
                 return mapper.Map<FornecedorResponse>(fornecedor);
             }
@@ -83,20 +83,18 @@ namespace GestaoProdutos.Aplicacao.Fornecedores.Servicos
             }
         }
 
-        public PaginacaoConsulta<FornecedorResponse> Listar(FornecedorListarRequest request)
+        public async Task<PaginacaoConsulta<FornecedorResponse>> ListarAsync(FornecedorListarRequest request)
         {
             FornecedorListarFiltro filtro = mapper.Map<FornecedorListarFiltro>(request);
-            IQueryable<Fornecedor> query = fornecedoresRepositorio.Filtrar(filtro);
+            IQueryable<Fornecedor> query = await fornecedoresRepositorio.FiltrarAsync(filtro);
 
             PaginacaoConsulta<Fornecedor> fornecedores = fornecedoresRepositorio.Listar(query, request.Qt, request.Pg, request.CpOrd, request.TpOrd);
-            PaginacaoConsulta<FornecedorResponse> response;
-            response = mapper.Map<PaginacaoConsulta<FornecedorResponse>>(fornecedores);
-            return response;
+           return mapper.Map<PaginacaoConsulta<FornecedorResponse>>(fornecedores);
         }
 
-        public FornecedorResponse Recuperar(int id)
+        public async Task<FornecedorResponse> RecuperarAsync(int id)
         {
-            Fornecedor fornecedor = fornecedoresServico.Validar(id);
+            Fornecedor fornecedor = await fornecedoresServico.ValidarAsync(id);
             return mapper.Map<FornecedorResponse>(fornecedor);
         }
     }
