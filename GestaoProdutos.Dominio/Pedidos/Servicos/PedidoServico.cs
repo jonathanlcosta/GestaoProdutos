@@ -12,14 +12,10 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
     public class PedidoServico : IPedidosServico
     {
         private readonly IPedidosRepositorio pedidosRepositorio;
-        private readonly IPedidosPacoteServico pedidosPacoteServico;
-        private readonly IPedidosItemServico pedidosItemServico;
 
-        public PedidoServico(IPedidosRepositorio pedidosRepositorio, IPedidosPacoteServico pedidosPacoteServico, IPedidosItemServico pedidosItemServico)
+        public PedidoServico(IPedidosRepositorio pedidosRepositorio)
         {
             this.pedidosRepositorio = pedidosRepositorio;
-            this.pedidosPacoteServico = pedidosPacoteServico;
-            this.pedidosItemServico = pedidosItemServico;
         }
 
         public Task<Pedido> EditarAsync(PedidoComando comando)

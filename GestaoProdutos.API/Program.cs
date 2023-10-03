@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using GestaoProdutos.Aplicacao.Produtos.Profiles;
@@ -18,7 +19,11 @@ using ISession = NHibernate.ISession;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(op =>
+{
+    op.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    op.JsonSerializerOptions.PropertyNamingPolicy = null;
+});
 builder.Services.AddMediatR(typeof(UsuarioInserirRequest));
 
 builder.Services.AddEndpointsApiExplorer();
