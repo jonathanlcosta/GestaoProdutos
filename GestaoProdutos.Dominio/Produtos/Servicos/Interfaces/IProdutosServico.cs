@@ -14,5 +14,6 @@ namespace GestaoProdutos.Dominio.Produtos.Servicos.Interfaces
         Task<Produto> InserirAsync(ProdutoComando comando);
         Task<Produto> InstanciarAsync(ProdutoComando comando);
         Task<Produto> EditarAsync(int codigo, ProdutoComando comando);
+        Task<Produto> RecuperarPorDescricaoAsync(string descricao);
     }
 }

@@ -15,5 +15,6 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos.Interfaces
         Task<ProdutoResponse> InserirAsync(ProdutoInserirRequest request);
         Task<ProdutoResponse> EditarAsync(int codigo, ProdutoEditarRequest request);
         Task ExcluirAsync(int codigo);
+        IEnumerable<ProdutoResponse> RecuperarPorFornecedor(int idFornecedor);
     }
 }

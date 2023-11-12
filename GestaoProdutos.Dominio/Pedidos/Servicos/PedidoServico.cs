@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestaoProdutos.Dominio.Pedidos.Entidades;
 using GestaoProdutos.Dominio.Pedidos.Repositorios;
 using GestaoProdutos.Dominio.Pedidos.Servicos.Comandos;
@@ -12,30 +8,31 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
     public class PedidoServico : IPedidosServico
     {
         private readonly IPedidosRepositorio pedidosRepositorio;
+        private readonly IPedidosPacoteServico pedidosPacoteServico;
+        private readonly IPedidosItemServico pedidosItemServico;
 
-        public PedidoServico(IPedidosRepositorio pedidosRepositorio)
+        public PedidoServico(IPedidosRepositorio pedidosRepositorio, IPedidosPacoteServico pedidosPacoteServico, IPedidosItemServico pedidosItemServico)
         {
             this.pedidosRepositorio = pedidosRepositorio;
+            this.pedidosPacoteServico = pedidosPacoteServico;
+            this.pedidosItemServico = pedidosItemServico;
         }
 
-        public Task<Pedido> EditarAsync(PedidoComando comando)
+        public Pedido Inserir(PedidoComando comando)
         {
-            throw new NotImplementedException();
-        }
+            Pedido pedido = Instanciar(comando);
 
-        public Task<Pedido> InserirAsync(PedidoComando comando)
-        {
-            throw new NotImplementedException();
+            // comando.Pacotes.ForEach(pacote => {
+            //     var item = pedidosPacoteServico.Instanciar(pacote);
+            //     pacote = item;
+            // });
+
+            return pedido;
         }
 
         public Pedido Instanciar(PedidoComando comando)
         {
            return new Pedido(comando.Descricao);
-        }
-
-        public Task<Pedido> ValidarAsync(int codigo)
-        {
-            throw new NotImplementedException();
         }
     }
 }

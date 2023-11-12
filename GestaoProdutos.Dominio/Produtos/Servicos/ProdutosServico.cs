@@ -56,5 +56,10 @@ namespace GestaoProdutos.Dominio.Produtos.Servicos
             }
             return produto;
         }
+
+        public async Task<Produto> RecuperarPorDescricaoAsync(string descricao)
+        {
+            return await produtosRepositorio.RecuperarPorDescricaoAsync(descricao);
+        }
     }
 }

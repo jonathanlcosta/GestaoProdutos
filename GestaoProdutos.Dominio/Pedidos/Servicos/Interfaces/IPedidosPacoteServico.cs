@@ -10,6 +10,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos.Interfaces
     public interface IPedidosPacoteServico
     {
         Task<PedidoPacote> ValidarAsync(int id);
-        Task<PedidoPacote> InstanciarAsync(PedidoPacoteComando comando);
+        PedidoPacote Instanciar(PedidoPacoteComando comando);
+        Task AlterarPedidoParaCanceladoAsync(PedidoPacote pacote);
     }
 }

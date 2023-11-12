@@ -9,9 +9,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos.Interfaces
 {
     public interface IPedidosServico
     {
-        Task<Pedido> ValidarAsync(int codigo);
-        Task<Pedido> InserirAsync(PedidoComando comando);
+        Pedido Inserir(PedidoComando comando);
         Pedido Instanciar(PedidoComando comando);
-        Task<Pedido> EditarAsync(PedidoComando comando);
     }
 }

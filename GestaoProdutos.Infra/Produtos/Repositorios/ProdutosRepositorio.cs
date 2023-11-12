@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using GestaoProdutos.Dominio.Produtos.Entidades;
 using GestaoProdutos.Dominio.Produtos.Enumeradores;
 using GestaoProdutos.Dominio.Produtos.Repositorios;
@@ -58,6 +59,18 @@ namespace GestaoProdutos.Infra.Produtos
         {
             Produto produto = await Query().Where(x => x.Codigo == codigo && x.Situacao != SituacaoProdutoEnum.Inativo).FirstOrDefaultAsync();
             return produto;
+        }
+
+        public IEnumerable<Produto> RecuperarProdutoPorFornecedor(int idFornecedor)
+        {
+   
+            var produtos = Query().Where(x => x.Fornecedor.Id == idFornecedor).ToList();
+            return produtos;
+        }
+
+        public async Task<Produto> RecuperarPorDescricaoAsync(string descricao)
+        {
+            return await Query().Where(x => x.Descricao.Equals(descricao)).FirstOrDefaultAsync();
         }
 
 

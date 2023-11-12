@@ -12,6 +12,8 @@ namespace GestaoProdutos.Dominio.Produtos.Repositorios
     {
         public Task DeletarAsync(Produto produto);
         public Task<Produto> RecuperarProdutoAsync(int id);
+        Task<Produto> RecuperarPorDescricaoAsync(string descricao);
         Task<IQueryable<Produto>> FiltrarAsync(ProdutoListarFiltro filtro);
+        IEnumerable<Produto> RecuperarProdutoPorFornecedor(int idFornecedor);
     }
 }

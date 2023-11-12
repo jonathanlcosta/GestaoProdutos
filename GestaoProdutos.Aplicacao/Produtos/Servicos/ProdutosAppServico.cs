@@ -97,5 +97,11 @@ namespace GestaoProdutos.Aplicacao.Produtos.Servicos
             Produto produto = await produtosServico.ValidarAsync(codigo);
             return mapper.Map<ProdutoResponse>(produto);
         }
+
+        public IEnumerable<ProdutoResponse> RecuperarPorFornecedor(int idFornecedor)
+        {
+            var produto = produtosRepositorio.RecuperarProdutoPorFornecedor(idFornecedor);
+            return mapper.Map<IEnumerable<ProdutoResponse>>(produto);
+        }
     }
 }

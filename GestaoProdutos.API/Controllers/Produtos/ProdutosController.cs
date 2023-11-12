@@ -82,5 +82,13 @@ namespace GestaoProdutos.API.Produtos.Controllers
             await produtosAppServico.ExcluirAsync(codigo);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("fornecedores/{idFornecedor}")]
+        public ActionResult RecuperarPorFornecedor(int idFornecedor)
+        {
+            var produto = produtosAppServico.RecuperarPorFornecedor(idFornecedor);
+            return Ok(produto);
+        }
     }
 }

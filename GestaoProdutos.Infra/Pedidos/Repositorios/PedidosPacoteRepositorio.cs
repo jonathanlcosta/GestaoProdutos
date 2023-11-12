@@ -5,9 +5,9 @@ using NHibernate;
 
 namespace GestaoProdutos.Infra.Pedidos.Repositorios
 {
-    public class PedidosRepositorio : GenericoRepositorio<Pedido>, IPedidosRepositorio
+    public class PedidosPacoteRepositorio : GenericoRepositorio<PedidoPacote>, IPedidosPacoteRepositorio
     {
-        public PedidosRepositorio(ISession session) : base(session)
+        public PedidosPacoteRepositorio(ISession session) : base(session)
         {
         }
     }
