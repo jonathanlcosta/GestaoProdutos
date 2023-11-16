@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {}
+    "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+    "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
+        "projectUniqueName": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
         "projectName": "GestaoProdutos.Dominio",
-        "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
+        "projectPath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
         "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\obj\\",
+        "outputPath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",

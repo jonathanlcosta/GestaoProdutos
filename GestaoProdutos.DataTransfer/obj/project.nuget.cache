@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O7wxDKQiFfT6LVeMWC++YzAY2c0n155/vJcqAWB8HnjgXxsXPTzzSH5L6qkRaFU2+imec9DeeQ/FbljmaemdtA==",
+  "dgSpecHash": "7HoYoLcsib57Nem3E6TiLZV+Df969rqXtJYtjvGZBklZO9wbEcJgxTZbZmZQ2DHqqUMeS+2cBC5U1B+hd112LQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj",
+  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.DataTransfer\\GestaoProdutos.DataTransfer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",

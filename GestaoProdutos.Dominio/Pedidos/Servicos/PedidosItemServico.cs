@@ -5,6 +5,7 @@ using GestaoProdutos.Dominio.Pedidos.Repositorios;
 using GestaoProdutos.Dominio.Pedidos.Servicos.Comandos;
 using GestaoProdutos.Dominio.Pedidos.Servicos.Interfaces;
 using GestaoProdutos.Dominio.Produtos.Servicos.Interfaces;
+using GestaoProdutos.Dominio.Util.Mensageria;
 
 namespace GestaoProdutos.Dominio.Pedidos.Servicos
 {
@@ -14,13 +15,16 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
         private readonly IPedidosItemRepositorio pedidosItemRepositorio;
         private readonly IPedidosPacoteRepositorio pedidosPacoteRepositorio;
         private readonly IPedidosPacoteServico pedidosPacoteServico;
+        private readonly IMensageriaServico mensageriaServico;
+        private const string QUEUE = "cancelamento-pacotes";
 
-        public PedidosItemServico(IProdutosServico produtosServico, IPedidosItemRepositorio pedidosItemRepositorio, IPedidosPacoteRepositorio pedidosPacoteRepositorio, IPedidosPacoteServico pedidosPacoteServico)
+        public PedidosItemServico(IProdutosServico produtosServico, IPedidosItemRepositorio pedidosItemRepositorio, IPedidosPacoteRepositorio pedidosPacoteRepositorio, IPedidosPacoteServico pedidosPacoteServico, IMensageriaServico mensageriaServico)
         {
             this.produtosServico = produtosServico;
             this.pedidosItemRepositorio = pedidosItemRepositorio;
             this.pedidosPacoteRepositorio = pedidosPacoteRepositorio;
             this.pedidosPacoteServico = pedidosPacoteServico;
+            this.mensageriaServico = mensageriaServico;
         }
 
         public async Task<PedidoItem> InstanciarAsync(PedidoItemComando comando)
@@ -63,6 +67,8 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
             pedidoItem.Pacote.SetSituacao(SituacaoPedidoPacoteEnum.Cancelado);
             await pedidosPacoteRepositorio.EditarAsync(pedidoItem.Pacote);
             await pedidosPacoteServico.AlterarPedidoParaCanceladoAsync(pedidoItem.Pacote);
+            byte[] bytes = mensageriaServico.SerializarMensagem<PedidoPacote>(pedidoItem.Pacote);
+            mensageriaServico.Publish(QUEUE, bytes);
         }
 
         public async Task ValidarSeTodosItensForamEntregues(PedidoItem item)

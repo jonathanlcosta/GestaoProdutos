@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3z2CucpzwvPYwRfSS6aLry3xw3Exe5YBshR1GFBodstIBUZbeQnThQB409quhP/6wbK+4x+ur90imb3chVRTKQ==",
+  "dgSpecHash": "thynXFGu8Npk20wYqRA7U2TViPtJhJdrkS3wt73t9nwtRJ+3QaY2Zc6OH2UGWzqIXJr1YGMWYFhOiehQ+fx8Tw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
+  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "usV5TSudzCKhUxOXBYanvBeeXY4Hn9fsCF4fIeuWLCGMU5hoCRUpVLtn7VFHHeqYQdbXECriDNuofF/GXx+Qtw==",
+  "dgSpecHash": "hcY9ahFWA6ZzgkvKh0eo8VFdjvxcENEPFUw6rNlRyl4O7p9Si+1utw7K8+z/JCo9vqbDpcG3phMAIAmCxM0/Tw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio.Testes\\GestaoProdutos.Dominio.Testes.csproj",
+  "projectFilePath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio.Testes\\GestaoProdutos.Dominio.Testes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
