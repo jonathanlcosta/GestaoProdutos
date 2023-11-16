@@ -24,8 +24,9 @@ namespace GestaoProdutos.Infra.Util.Mensageria
             return bytes;
         }
 
-        public void Publish(string queue, byte[] mensagem)
+        public void Publish<T>(string queue, T evento)
         {
+            var mensagem = SerializarMensagem(evento);
             using (var connection = connectionFactory.CreateConnection())
             {
                 using(var channel = connection.CreateModel())

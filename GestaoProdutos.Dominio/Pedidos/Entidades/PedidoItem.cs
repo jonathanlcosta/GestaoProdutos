@@ -12,12 +12,13 @@ namespace GestaoProdutos.Dominio.Pedidos.Entidades
 
         public virtual int Id { get; protected set; }
         public virtual Produto Produto { get; protected set; }
-        public virtual decimal ValorUnitario { get; protected set; }
-        public virtual PedidoPacote Pacote { get; set; }
+        public virtual double ValorUnitario { get; protected set; }
+        public virtual PedidoPacote Pacote { get; protected set; }
+        public virtual int Quantidade { get; protected set; }
         public virtual string MotivoCancelamento { get; protected set; }
         public virtual SituacaoPedidoItemEnum Situacao { get; protected set; }
         protected PedidoItem(){}
-        public PedidoItem(Produto produto, decimal valorUnitario, PedidoPacote pacote)
+        public PedidoItem(Produto produto, double valorUnitario, PedidoPacote pacote)
         {
             Produto = produto;
             ValorUnitario = valorUnitario;

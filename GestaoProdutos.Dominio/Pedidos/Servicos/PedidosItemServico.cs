@@ -1,6 +1,7 @@
 using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Pedidos.Entidades;
 using GestaoProdutos.Dominio.Pedidos.Enumeradores;
+using GestaoProdutos.Dominio.Pedidos.Mensagens;
 using GestaoProdutos.Dominio.Pedidos.Repositorios;
 using GestaoProdutos.Dominio.Pedidos.Servicos.Comandos;
 using GestaoProdutos.Dominio.Pedidos.Servicos.Interfaces;
@@ -67,8 +68,16 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
             pedidoItem.Pacote.SetSituacao(SituacaoPedidoPacoteEnum.Cancelado);
             await pedidosPacoteRepositorio.EditarAsync(pedidoItem.Pacote);
             await pedidosPacoteServico.AlterarPedidoParaCanceladoAsync(pedidoItem.Pacote);
-            byte[] bytes = mensageriaServico.SerializarMensagem<PedidoPacote>(pedidoItem.Pacote);
-            mensageriaServico.Publish(QUEUE, bytes);
+
+            double valorTotalCancelado = pedidoItem.Pacote.Pedido.Pacotes.Where(x => x.Situacao == SituacaoPedidoPacoteEnum.Cancelado).SelectMany(pacote => pacote.Itens)
+            .Sum(item => item.ValorUnitario * item.Quantidade);
+
+            CancelamentoPedidoPacoteMensagem mensagem = new()
+            {
+                IdPedido = pedidoItem.Pacote.Pedido.Id,
+                ValorTotalCancelado = valorTotalCancelado
+            };
+            mensageriaServico.Publish(QUEUE, mensagem);
         }
 
         public async Task ValidarSeTodosItensForamEntregues(PedidoItem item)

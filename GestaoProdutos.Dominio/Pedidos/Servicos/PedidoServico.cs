@@ -18,14 +18,25 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
             this.pedidosItemServico = pedidosItemServico;
         }
 
-        public Pedido Inserir(PedidoComando comando)
+        public async Task<Pedido> Inserir(PedidoComando comando)
         {
             Pedido pedido = Instanciar(comando);
 
-            // comando.Pacotes.ForEach(pacote => {
-            //     var item = pedidosPacoteServico.Instanciar(pacote);
-            //     pacote = item;
-            // });
+            comando.Pacotes.ForEach(pacote => {
+                pacote.Pedido = pedido;
+                PedidoPacote pedidoPacote = pedidosPacoteServico.Instanciar(pacote);
+                pedido.Pacotes.Add(pedidoPacote);
+                
+                pacote.Itens.ForEach(async item => {
+
+                item.Pacote = pedidoPacote;
+                PedidoItem pedidoItem = await pedidosItemServico.InstanciarAsync(item);
+                pedidoPacote.Itens.Add(pedidoItem);
+                }
+                );
+            });
+
+            await pedidosRepositorio.InserirAsync(pedido);
 
             return pedido;
         }

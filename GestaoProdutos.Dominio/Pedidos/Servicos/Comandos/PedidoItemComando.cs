@@ -10,7 +10,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos.Comandos
     public class PedidoItemComando
     {
         public string DescricaoProduto { get; set; }
-        public decimal ValorUnitario { get; set; }
+        public double ValorUnitario { get; set; }
         public PedidoPacote Pacote { get; set; }
         public SituacaoPedidoItemEnum Situacao { get; set; }
     }

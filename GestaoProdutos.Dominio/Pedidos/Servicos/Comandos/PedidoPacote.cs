@@ -10,7 +10,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos.Comandos
     public class PedidoPacoteComando
     {
         public Pedido Pedido { get; set; }
-        public IList<PedidoItemComando> Itens { get; set; }
+        public List<PedidoItemComando> Itens { get; set; }
         public SituacaoPedidoPacoteEnum Situacao { get; set; } 
     }
 }
