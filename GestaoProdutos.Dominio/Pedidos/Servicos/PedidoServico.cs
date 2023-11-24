@@ -18,7 +18,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
             this.pedidosItemServico = pedidosItemServico;
         }
 
-        public async Task<Pedido> Inserir(PedidoComando comando)
+        public async Task<Pedido> InserirAsync(PedidoComando comando)
         {
             Pedido pedido = Instanciar(comando);
 

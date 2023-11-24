@@ -6,7 +6,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos.Interfaces
 {
     public interface IPedidosServico
     {
-        Task<Pedido> Inserir(PedidoComando comando);
+        Task<Pedido> InserirAsync(PedidoComando comando);
         Pedido Instanciar(PedidoComando comando);
     }
 }

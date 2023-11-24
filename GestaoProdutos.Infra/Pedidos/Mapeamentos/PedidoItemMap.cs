@@ -13,6 +13,8 @@ namespace GestaoProdutos.Infra.Pedidos.Mapeamentos
             Id(x => x.Id, "id");
             References(x => x.Produto, "idProduto");
             References(x => x.Pacote, "idPacote");
+            Map(x => x.Quantidade, "quantidade");
+            Map(x => x.ValorUnitario, "valorUnitario");
             Map(x => x.Situacao, "situacao").CustomType<SituacaoPedidoItemEnum>();
         }
     }

@@ -9,6 +9,7 @@
       "GestaoProdutos.Infra/1.0.0": {
         "dependencies": {
           "GestaoProdutos.Dominio": "1.0.0",
+          "RabbitMQ.Client": "6.6.0-beta.0",
           "System.Linq.Dynamic.Core": "1.3.2",
           "FluentNHibernate": "3.1.0"
         },
@@ -204,6 +205,18 @@
           "lib/netcoreapp2.0/NHibernate.dll": {
             "assemblyVersion": "5.3.0.0",
             "fileVersion": "5.3.3.0"
+          }
+        }
+      },
+      "RabbitMQ.Client/6.6.0-beta.0": {
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Threading.Channels": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.6.0.0"
           }
         }
       },
@@ -523,6 +536,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Memory/4.5.5": {},
       "System.Net.Http/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -859,6 +873,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Threading.Channels/7.0.0": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1051,6 +1066,13 @@
       "sha512": "sha512-ar4yr/NgtkysCK46UsEPmraqlAsfDOgpda9tWDRhN0K/N/A2X3rDOFaVg3f+ab3L6oy/+C2hAcUM7sZIBFhq+g==",
       "path": "nhibernate/5.3.3",
       "hashPath": "nhibernate.5.3.3.nupkg.sha512"
+    },
+    "RabbitMQ.Client/6.6.0-beta.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vr9O6VeVYVyq8uAmdzwA+F/geQXb4Kc3ZFoAenhOwAvsbIZJEhqzjBCAOlzbROwkIPaQjmS6+qWc3wOJjSP9qg==",
+      "path": "rabbitmq.client/6.6.0-beta.0",
+      "hashPath": "rabbitmq.client.6.6.0-beta.0.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",
@@ -1339,6 +1361,13 @@
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
     },
+    "System.Memory/4.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "path": "system.memory/4.5.5",
+      "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
     "System.Net.Http/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1569,6 +1598,13 @@
       "sha512": "sha512-VkUS0kOBcUf3Wwm0TSbrevDDZ6BlM+b/HRiapRFWjM5O0NS0LviG0glKmFK+hhPDd1XFeSdU1GmlLhb2CoVpIw==",
       "path": "system.threading/4.3.0",
       "hashPath": "system.threading.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Channels/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
+      "path": "system.threading.channels/7.0.0",
+      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",

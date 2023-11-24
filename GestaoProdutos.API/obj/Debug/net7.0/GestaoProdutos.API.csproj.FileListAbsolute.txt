@@ -87,3 +87,4 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Micr
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\RabbitMQ.Client.dll

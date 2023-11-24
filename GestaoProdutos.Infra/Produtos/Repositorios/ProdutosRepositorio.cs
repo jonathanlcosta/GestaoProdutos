@@ -70,7 +70,7 @@ namespace GestaoProdutos.Infra.Produtos
 
         public async Task<Produto> RecuperarPorDescricaoAsync(string descricao)
         {
-            return await Query().Where(x => x.Descricao.Equals(descricao)).FirstOrDefaultAsync();
+            return await Query().Where(x => x.Descricao == descricao).FirstOrDefaultAsync();
         }
 
 

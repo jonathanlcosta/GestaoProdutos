@@ -5831,11 +5831,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
+      "projectUniqueName": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
       "projectName": "GestaoProdutos.Infra",
-      "projectPath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
+      "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\GestaoProdutos.Infra.csproj",
       "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\obj\\",
+      "outputPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5852,8 +5852,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
-              "projectPath": "c:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
+            "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj": {
+              "projectPath": "C:\\Users\\nickc\\Downloads\\GestaoProdutos\\GestaoProdutos.Dominio\\GestaoProdutos.Dominio.csproj"
             }
           }
         }
