@@ -11,5 +11,6 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos.Interfaces
     {
         Task<PedidoItem> ValidarAsync(int id);
         Task<PedidoItem> InstanciarAsync(PedidoItemComando comando);
+        Task<PedidoItem> AlterarSituacaoItemAsync(AlterarSituacaoItemComando comando);
     }
 }

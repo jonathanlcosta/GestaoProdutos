@@ -18,12 +18,13 @@ namespace GestaoProdutos.Dominio.Pedidos.Entidades
         public virtual string MotivoCancelamento { get; protected set; }
         public virtual SituacaoPedidoItemEnum Situacao { get; protected set; }
         protected PedidoItem(){}
-        public PedidoItem(Produto produto, double valorUnitario, PedidoPacote pacote)
+        public PedidoItem(Produto produto, int quantidade, double valorUnitario, PedidoPacote pacote)
         {
             Produto = produto;
             ValorUnitario = valorUnitario;
             Situacao = SituacaoPedidoItemEnum.Pendente;
             Pacote = pacote;
+            Quantidade = quantidade;
         }
 
         public virtual void SetMotivoCancelamento(string motivoCancelamento)

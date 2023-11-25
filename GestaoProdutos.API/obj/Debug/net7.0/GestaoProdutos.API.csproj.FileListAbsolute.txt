@@ -1,6 +1,7 @@
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\appsettings.json
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.exe
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.xml
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.deps.json
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.runtimeconfig.json
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.dll
@@ -8,6 +9,7 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Gest
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Antlr3.Runtime.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\BCrypt.Net-Core.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\BCrypt.Net-Next.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\FluentNHibernate.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Google.Protobuf.dll
@@ -15,9 +17,16 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Iesi
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\K4os.Compression.LZ4.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.Contracts.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
@@ -31,6 +40,7 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Zstd
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MySqlConnector.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\NHibernate.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\RabbitMQ.Client.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Remotion.Linq.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Remotion.Linq.EagerFetching.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Scrutor.dll
@@ -78,13 +88,3 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\refi
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.pdb
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\GestaoProdutos.API.genruntimeconfig.cache
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\obj\Debug\net7.0\ref\GestaoProdutos.API.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\GestaoProdutos.API.xml
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\BCrypt.Net-Core.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.Contracts.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.API\bin\Debug\net7.0\RabbitMQ.Client.dll

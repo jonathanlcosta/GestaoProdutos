@@ -19,6 +19,7 @@ namespace GestaoProdutos.Aplicacao.Pedidos.Profiles
             CreateMap<PedidoPacote, PedidoPacoteResponse>();
             CreateMap<PedidoItem, PedidoItemResponse>()
             .ForMember(x => x.DescricaoProduto, x => x.MapFrom(x => x.Produto.Descricao));
+            CreateMap<AlterarSituacaoItemRequest, AlterarSituacaoItemComando>();
         }
     }
 }

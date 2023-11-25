@@ -2,9 +2,9 @@ namespace GestaoProdutos.Dominio.Pedidos.Enumeradores
 {
     public enum SituacaoPedidoItemEnum
     {
-        Cancelado = 3,
-        Entregue = 2,
-        EmTransito = 4,
+        Cancelado = 4,
+        Entregue = 3,
+        EmTransito = 2,
         Pendente = 1
     }
 }

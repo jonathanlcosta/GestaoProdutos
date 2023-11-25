@@ -1,3 +1,4 @@
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\CoverletSourceRootsMapping_GestaoProdutos.Dominio.Testes
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\testhost.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\testhost.exe
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -7,9 +8,17 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\GestaoProdutos.Dominio.Testes.runtimeconfig.json
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\GestaoProdutos.Dominio.Testes.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\GestaoProdutos.Dominio.Testes.pdb
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\BCrypt.Net-Core.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Castle.Core.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\FluentAssertions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
@@ -22,6 +31,7 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\NSubstitute.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\NuGet.Frameworks.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\xunit.abstractions.dll
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\xunit.assert.dll
@@ -106,4 +116,3 @@ C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\net7.0\GestaoProdutos.Dominio.Testes.pdb
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\net7.0\GestaoProdutos.Dominio.Testes.genruntimeconfig.cache
 C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\obj\Debug\net7.0\ref\GestaoProdutos.Dominio.Testes.dll
-C:\Users\nickc\Downloads\GestaoProdutos\GestaoProdutos.Dominio.Testes\bin\Debug\net7.0\CoverletSourceRootsMapping_GestaoProdutos.Dominio.Testes

@@ -31,7 +31,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
         public async Task<PedidoItem> InstanciarAsync(PedidoItemComando comando)
         {
             var produto = await produtosServico.RecuperarPorDescricaoAsync(comando.DescricaoProduto);
-            return new(produto, comando.ValorUnitario, comando.Pacote);
+            return new(produto, comando.Quantidade, comando.ValorUnitario, comando.Pacote);
         }
 
         public async Task<PedidoItem> ValidarAsync(int id)
@@ -44,7 +44,7 @@ namespace GestaoProdutos.Dominio.Pedidos.Servicos
             return produto;
         }
 
-        public async Task<PedidoItem> AlterarSituacaoItem(AlterarSituacaoItemComando comando)
+        public async Task<PedidoItem> AlterarSituacaoItemAsync(AlterarSituacaoItemComando comando)
         {
             var item = await ValidarAsync(comando.Id);
             item.SetSituacao(comando.Situacao);
