@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestaoProdutos.Dominio.Execoes;
 using GestaoProdutos.Dominio.Fornecedores.Entidades;
 using GestaoProdutos.Dominio.Produtos.Enumeradores;
